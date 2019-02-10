@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F340CE16220C3C4800E5F0E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE15220C3C4800E5F0E5 /* AppDelegate.swift */; };
+		F340CE1D220C3C4900E5F0E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F340CE1C220C3C4900E5F0E5 /* Assets.xcassets */; };
+		F340CE20220C3C4900E5F0E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F340CE1E220C3C4900E5F0E5 /* LaunchScreen.storyboard */; };
+		F340CE28220C3F9100E5F0E5 /* OrzReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE27220C3F9100E5F0E5 /* OrzReader.swift */; };
+		F340CE2D220C3FE300E5F0E5 /* OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = F340CE2C220C3FE300E5F0E5 /* OpenCV.mm */; };
+		F340CE33220C3FF400E5F0E5 /* OrzPDFPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE2F220C3FF400E5F0E5 /* OrzPDFPage.swift */; };
+		F340CE34220C3FF400E5F0E5 /* OrzPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE30220C3FF400E5F0E5 /* OrzPDFViewController.swift */; };
+		F340CE35220C3FF400E5F0E5 /* OrzPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE31220C3FF400E5F0E5 /* OrzPDFView.swift */; };
+		F340CE37220C418B00E5F0E5 /* pdf.png in Resources */ = {isa = PBXBuildFile; fileRef = F340CE36220C418B00E5F0E5 /* pdf.png */; };
+		F340CE61220C620900E5F0E5 /* OrzSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE60220C620900E5F0E5 /* OrzSplitViewController.swift */; };
+		F340CE63220C62C600E5F0E5 /* OrzMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE62220C62C600E5F0E5 /* OrzMasterViewController.swift */; };
+		F340CE65220C62E500E5F0E5 /* OrzDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE64220C62E500E5F0E5 /* OrzDetailViewController.swift */; };
+		F340CE67220C8F7A00E5F0E5 /* OrzNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE66220C8F7A00E5F0E5 /* OrzNavigationController.swift */; };
+		F340CE6B220C932C00E5F0E5 /* OrzPDFInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE6A220C932C00E5F0E5 /* OrzPDFInfo.swift */; };
+		F37D3CD7220D31B90071189D /* UITableView+RealmChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D3CD6220D31B90071189D /* UITableView+RealmChanges.swift */; };
+		F37D3CD9220E5F700071189D /* OrzSplitViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D3CD8220E5F700071189D /* OrzSplitViewControllerDelegate.swift */; };
+		F37D3CDE220FF7990071189D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F37D3CDD220FF7990071189D /* README.md */; };
+		F7CA190D23A8E89F3CD28DE1 /* Pods_OrzReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B12C48ACA5A3B66B4D1FEC1A /* Pods_OrzReader.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		027B7959ED1A35DC00AB7FB4 /* Pods-OrzReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrzReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader.debug.xcconfig"; sourceTree = "<group>"; };
+		B12C48ACA5A3B66B4D1FEC1A /* Pods_OrzReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrzReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF738B3783C9A3A5CEFF1011 /* Pods-OrzReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrzReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader.release.xcconfig"; sourceTree = "<group>"; };
+		F340CE12220C3C4800E5F0E5 /* OrzReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrzReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F340CE15220C3C4800E5F0E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F340CE1C220C3C4900E5F0E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F340CE1F220C3C4900E5F0E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F340CE21220C3C4900E5F0E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F340CE27220C3F9100E5F0E5 /* OrzReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzReader.swift; sourceTree = "<group>"; };
+		F340CE2B220C3FE300E5F0E5 /* OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
+		F340CE2C220C3FE300E5F0E5 /* OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCV.mm; sourceTree = "<group>"; };
+		F340CE2F220C3FF400E5F0E5 /* OrzPDFPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrzPDFPage.swift; sourceTree = "<group>"; };
+		F340CE30220C3FF400E5F0E5 /* OrzPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrzPDFViewController.swift; sourceTree = "<group>"; };
+		F340CE31220C3FF400E5F0E5 /* OrzPDFView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrzPDFView.swift; sourceTree = "<group>"; };
+		F340CE36220C418B00E5F0E5 /* pdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf.png; sourceTree = "<group>"; };
+		F340CE3F220C45FF00E5F0E5 /* OrzReaderBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrzReaderBridge.h; sourceTree = "<group>"; };
+		F340CE60220C620900E5F0E5 /* OrzSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzSplitViewController.swift; sourceTree = "<group>"; };
+		F340CE62220C62C600E5F0E5 /* OrzMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzMasterViewController.swift; sourceTree = "<group>"; };
+		F340CE64220C62E500E5F0E5 /* OrzDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzDetailViewController.swift; sourceTree = "<group>"; };
+		F340CE66220C8F7A00E5F0E5 /* OrzNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzNavigationController.swift; sourceTree = "<group>"; };
+		F340CE6A220C932C00E5F0E5 /* OrzPDFInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFInfo.swift; sourceTree = "<group>"; };
+		F37D3CD6220D31B90071189D /* UITableView+RealmChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+RealmChanges.swift"; sourceTree = "<group>"; };
+		F37D3CD8220E5F700071189D /* OrzSplitViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzSplitViewControllerDelegate.swift; sourceTree = "<group>"; };
+		F37D3CDD220FF7990071189D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F340CE0F220C3C4800E5F0E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7CA190D23A8E89F3CD28DE1 /* Pods_OrzReader.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9747225803B1EE1A23B176FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				027B7959ED1A35DC00AB7FB4 /* Pods-OrzReader.debug.xcconfig */,
+				CF738B3783C9A3A5CEFF1011 /* Pods-OrzReader.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D6D71BEBE8B5176427C868D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B12C48ACA5A3B66B4D1FEC1A /* Pods_OrzReader.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F340CE09220C3C4800E5F0E5 = {
+			isa = PBXGroup;
+			children = (
+				F37D3CDD220FF7990071189D /* README.md */,
+				F340CE14220C3C4800E5F0E5 /* OrzReader */,
+				F340CE13220C3C4800E5F0E5 /* Products */,
+				9747225803B1EE1A23B176FD /* Pods */,
+				D6D71BEBE8B5176427C868D8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F340CE13220C3C4800E5F0E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F340CE12220C3C4800E5F0E5 /* OrzReader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F340CE14220C3C4800E5F0E5 /* OrzReader */ = {
+			isa = PBXGroup;
+			children = (
+				F340CE29220C3F9600E5F0E5 /* Core */,
+				F340CE68220C8FF000E5F0E5 /* App */,
+				F340CE1C220C3C4900E5F0E5 /* Assets.xcassets */,
+				F340CE1E220C3C4900E5F0E5 /* LaunchScreen.storyboard */,
+				F340CE21220C3C4900E5F0E5 /* Info.plist */,
+			);
+			path = OrzReader;
+			sourceTree = "<group>";
+		};
+		F340CE29220C3F9600E5F0E5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F340CE69220C92F400E5F0E5 /* Model */,
+				F340CE27220C3F9100E5F0E5 /* OrzReader.swift */,
+				F340CE3F220C45FF00E5F0E5 /* OrzReaderBridge.h */,
+				F340CE36220C418B00E5F0E5 /* pdf.png */,
+				F340CE2A220C3FE300E5F0E5 /* OpenCV */,
+				F340CE2F220C3FF400E5F0E5 /* OrzPDFPage.swift */,
+				F340CE31220C3FF400E5F0E5 /* OrzPDFView.swift */,
+				F340CE30220C3FF400E5F0E5 /* OrzPDFViewController.swift */,
+				F340CE66220C8F7A00E5F0E5 /* OrzNavigationController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		F340CE2A220C3FE300E5F0E5 /* OpenCV */ = {
+			isa = PBXGroup;
+			children = (
+				F340CE2B220C3FE300E5F0E5 /* OpenCV.h */,
+				F340CE2C220C3FE300E5F0E5 /* OpenCV.mm */,
+			);
+			path = OpenCV;
+			sourceTree = "<group>";
+		};
+		F340CE68220C8FF000E5F0E5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F340CE15220C3C4800E5F0E5 /* AppDelegate.swift */,
+				F37D3CDA220EF61C0071189D /* Utils */,
+				F37D3CD8220E5F700071189D /* OrzSplitViewControllerDelegate.swift */,
+				F340CE60220C620900E5F0E5 /* OrzSplitViewController.swift */,
+				F340CE62220C62C600E5F0E5 /* OrzMasterViewController.swift */,
+				F340CE64220C62E500E5F0E5 /* OrzDetailViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F340CE69220C92F400E5F0E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F340CE6A220C932C00E5F0E5 /* OrzPDFInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F37D3CDA220EF61C0071189D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F37D3CD6220D31B90071189D /* UITableView+RealmChanges.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F340CE11220C3C4800E5F0E5 /* OrzReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F340CE24220C3C4900E5F0E5 /* Build configuration list for PBXNativeTarget "OrzReader" */;
+			buildPhases = (
+				AA845E30C06664A2717AB1DB /* [CP] Check Pods Manifest.lock */,
+				F340CE0E220C3C4800E5F0E5 /* Sources */,
+				F340CE0F220C3C4800E5F0E5 /* Frameworks */,
+				F340CE10220C3C4800E5F0E5 /* Resources */,
+				6A666A1D9B2A944B8423363A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OrzReader;
+			productName = OrzReader;
+			productReference = F340CE12220C3C4800E5F0E5 /* OrzReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F340CE0A220C3C4800E5F0E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = joker;
+				TargetAttributes = {
+					F340CE11220C3C4800E5F0E5 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = F340CE0D220C3C4800E5F0E5 /* Build configuration list for PBXProject "OrzReader" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F340CE09220C3C4800E5F0E5;
+			productRefGroup = F340CE13220C3C4800E5F0E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F340CE11220C3C4800E5F0E5 /* OrzReader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F340CE10220C3C4800E5F0E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F340CE37220C418B00E5F0E5 /* pdf.png in Resources */,
+				F340CE20220C3C4900E5F0E5 /* LaunchScreen.storyboard in Resources */,
+				F37D3CDE220FF7990071189D /* README.md in Resources */,
+				F340CE1D220C3C4900E5F0E5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6A666A1D9B2A944B8423363A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA845E30C06664A2717AB1DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OrzReader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F340CE0E220C3C4800E5F0E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F340CE2D220C3FE300E5F0E5 /* OpenCV.mm in Sources */,
+				F340CE63220C62C600E5F0E5 /* OrzMasterViewController.swift in Sources */,
+				F340CE16220C3C4800E5F0E5 /* AppDelegate.swift in Sources */,
+				F340CE67220C8F7A00E5F0E5 /* OrzNavigationController.swift in Sources */,
+				F37D3CD9220E5F700071189D /* OrzSplitViewControllerDelegate.swift in Sources */,
+				F340CE35220C3FF400E5F0E5 /* OrzPDFView.swift in Sources */,
+				F340CE33220C3FF400E5F0E5 /* OrzPDFPage.swift in Sources */,
+				F340CE34220C3FF400E5F0E5 /* OrzPDFViewController.swift in Sources */,
+				F340CE6B220C932C00E5F0E5 /* OrzPDFInfo.swift in Sources */,
+				F340CE65220C62E500E5F0E5 /* OrzDetailViewController.swift in Sources */,
+				F340CE28220C3F9100E5F0E5 /* OrzReader.swift in Sources */,
+				F340CE61220C620900E5F0E5 /* OrzSplitViewController.swift in Sources */,
+				F37D3CD7220D31B90071189D /* UITableView+RealmChanges.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F340CE1E220C3C4900E5F0E5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F340CE1F220C3C4900E5F0E5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F340CE22220C3C4900E5F0E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F340CE23220C3C4900E5F0E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F340CE25220C3C4900E5F0E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 027B7959ED1A35DC00AB7FB4 /* Pods-OrzReader.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2N62934Y28;
+				INFOPLIST_FILE = OrzReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/joker/Desktop/OrzReader/OrzReader/Core/OrzReaderBridge.h;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F340CE26220C3C4900E5F0E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF738B3783C9A3A5CEFF1011 /* Pods-OrzReader.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2N62934Y28;
+				INFOPLIST_FILE = OrzReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/joker/Desktop/OrzReader/OrzReader/Core/OrzReaderBridge.h;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F340CE0D220C3C4800E5F0E5 /* Build configuration list for PBXProject "OrzReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F340CE22220C3C4900E5F0E5 /* Debug */,
+				F340CE23220C3C4900E5F0E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F340CE24220C3C4900E5F0E5 /* Build configuration list for PBXNativeTarget "OrzReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F340CE25220C3C4900E5F0E5 /* Debug */,
+				F340CE26220C3C4900E5F0E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F340CE0A220C3C4800E5F0E5 /* Project object */;
+}
