@@ -24,6 +24,7 @@
 		F37D3CD7220D31B90071189D /* UITableView+RealmChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D3CD6220D31B90071189D /* UITableView+RealmChanges.swift */; };
 		F37D3CD9220E5F700071189D /* OrzSplitViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D3CD8220E5F700071189D /* OrzSplitViewControllerDelegate.swift */; };
 		F37D3CDE220FF7990071189D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F37D3CDD220FF7990071189D /* README.md */; };
+		F37D3CE022108F180071189D /* OrzConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37D3CDF22108F180071189D /* OrzConfigManager.swift */; };
 		F7CA190D23A8E89F3CD28DE1 /* Pods_OrzReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B12C48ACA5A3B66B4D1FEC1A /* Pods_OrzReader.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		F37D3CD6220D31B90071189D /* UITableView+RealmChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+RealmChanges.swift"; sourceTree = "<group>"; };
 		F37D3CD8220E5F700071189D /* OrzSplitViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzSplitViewControllerDelegate.swift; sourceTree = "<group>"; };
 		F37D3CDD220FF7990071189D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F37D3CDF22108F180071189D /* OrzConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzConfigManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				F340CE31220C3FF400E5F0E5 /* OrzPDFView.swift */,
 				F340CE30220C3FF400E5F0E5 /* OrzPDFViewController.swift */,
 				F340CE66220C8F7A00E5F0E5 /* OrzNavigationController.swift */,
+				F37D3CDF22108F180071189D /* OrzConfigManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				F340CE28220C3F9100E5F0E5 /* OrzReader.swift in Sources */,
 				F340CE61220C620900E5F0E5 /* OrzSplitViewController.swift in Sources */,
 				F37D3CD7220D31B90071189D /* UITableView+RealmChanges.swift in Sources */,
+				F37D3CE022108F180071189D /* OrzConfigManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

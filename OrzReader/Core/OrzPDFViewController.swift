@@ -31,6 +31,19 @@ class OrzPDFViewController: UIViewController {
         return emptyView
     }()
     
+    lazy var lockScreenButton: UIButton = {
+        let lockScreenButton = UIButton(type: .system)
+        lockScreenButton.setTitle("Lock", for: .normal)
+        lockScreenButton.addTarget(self, action: #selector(lockScreenAction(_:)), for: .touchUpInside)
+        return lockScreenButton
+    }()
+    
+    var isLockScreenSelected: Bool {
+        get {
+            return (OrzConfigManager.shared.supportedInterfaceOrientations != .allButUpsideDown)
+        }
+    }
+    
     // 数据有效时用来展示PDF视图
     var pdfView: OrzPDFView?
     
@@ -70,6 +83,12 @@ class OrzPDFViewController: UIViewController {
         saveReadProcess()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        OrzConfigManager.shared.supportedInterfaceOrientations = .allButUpsideDown
+        lockScreenButton.isSelected = isLockScreenSelected
+    }
+    
     override func didReceiveMemoryWarning() {
         saveReadProcess()
     }
@@ -105,6 +124,37 @@ extension OrzPDFViewController {
     func configureNavigationBar() {
         self.navigationController?.hidesBarsOnSwipe = true
         self.navigationController?.hidesBarsOnTap = true
+        
+        let lockScreenBarBtnItem = UIBarButtonItem(customView: lockScreenButton)
+        lockScreenButton.isSelected = isLockScreenSelected
+        
+        self.navigationItem.rightBarButtonItem = lockScreenBarBtnItem
+    }
+    
+    @objc func lockScreenAction(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+        
+        if OrzConfigManager.shared.supportedInterfaceOrientations != .allButUpsideDown {
+            OrzConfigManager.shared.supportedInterfaceOrientations = .allButUpsideDown
+        } else {
+        
+            var supportedInterfaceOrientationMask: UIInterfaceOrientationMask = .allButUpsideDown
+            
+            switch UIApplication.shared.statusBarOrientation {
+            case .portrait:
+                supportedInterfaceOrientationMask = .portrait
+            case .landscapeLeft:
+                supportedInterfaceOrientationMask = .landscapeLeft
+            case .landscapeRight:
+                supportedInterfaceOrientationMask = .landscapeRight
+            case .portraitUpsideDown:
+                supportedInterfaceOrientationMask = .portraitUpsideDown
+            case .unknown:
+                supportedInterfaceOrientationMask = .allButUpsideDown
+            }
+            OrzConfigManager.shared.supportedInterfaceOrientations = supportedInterfaceOrientationMask
+        }
     }
     
     func configurePDFView() {

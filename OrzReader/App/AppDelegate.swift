@@ -52,3 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return ret
     }
 }
+
+extension AppDelegate {
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return OrzConfigManager.shared.supportedInterfaceOrientations
+    }
+}
