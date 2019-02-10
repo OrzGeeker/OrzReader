@@ -38,7 +38,7 @@ class OrzPDFViewController: UIViewController {
     var readProcessBar = UIProgressView(progressViewStyle: .bar)
     
     // PDF视图展示模式
-    enum PageMode {
+    enum PageMode: Int {
         case contentToFill
         case pageToFill
     }
@@ -60,6 +60,20 @@ class OrzPDFViewController: UIViewController {
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadReadProcess()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        saveReadProcess()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        saveReadProcess()
+    }
+    
     deinit {
         removeRegisterNotification()
     }
@@ -74,6 +88,9 @@ extension OrzPDFViewController {
         // 配置页面背景色
         self.view.backgroundColor = .white
         
+        // 设置标题
+        self.title = self.pdfInfo?.title
+        
         // 配置导航条
         configureNavigationBar()
         
@@ -86,7 +103,8 @@ extension OrzPDFViewController {
     
     /// 配置导航条
     func configureNavigationBar() {
-        self.title = self.pdfInfo?.title
+        self.navigationController?.hidesBarsOnSwipe = true
+        self.navigationController?.hidesBarsOnTap = true
     }
     
     func configurePDFView() {
@@ -98,16 +116,15 @@ extension OrzPDFViewController {
         }
         
         if let pdfView = self.pdfView {
-            if let documentURL = pdfView.document?.documentURL, pdfURL != documentURL {
-                pdfView.document = PDFDocument(url: pdfURL)
-            }
+            if pdfView.document?.documentURL != pdfURL { pdfView.document = PDFDocument(url: pdfURL) }
         } else{
             pdfView = OrzPDFView(url: pdfURL)
             self.view.addSubview(pdfView!)
+
             pdfView!.snp.makeConstraints { (make) in
                 make.edges.equalToSuperview()
             }
-            
+
             //PDF阅读进度条，视图底部
             self.view.addSubview(readProcessBar)
             readProcessBar.snp.makeConstraints { (make) in
@@ -155,6 +172,9 @@ extension OrzPDFViewController {
     func addGesture() {
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapAction(_:)))
         doubleTap.numberOfTapsRequired = 2;
+        if let hideBarsOnTapGesture = self.navigationController?.barHideOnTapGestureRecognizer {
+            hideBarsOnTapGesture.require(toFail: doubleTap)
+        }
         self.view.addGestureRecognizer(doubleTap)
     }
     
@@ -187,7 +207,7 @@ extension OrzPDFViewController {
     ///
     /// - Parameter notification: 通知信息结构
     @objc func appWillResignActive(notification: NSNotification) {
-//        saveReadProcess()
+        saveReadProcess()
     }
     
     /// pdf页面变化通知处理
@@ -219,30 +239,26 @@ extension OrzPDFViewController {
     
     /// 保存当前阅读进度
     func saveReadProcess() {
-        if let pdfView = self.pdfView, let pdfInfo = self.pdfInfo {
-            let visiblePages = pdfView.visiblePages()
-            if let destination = pdfView.currentDestination,
-                let page = visiblePages.first?.pageRef?.pageNumber {
-                let point = destination.point
-                var pageHeights = visiblePages[1..<visiblePages.count].reduce(0) { (result, p) -> CGFloat in
-                    return result + p.bounds(for: pdfView.displayBox).size.height
-                }
-                pageHeights -= point.y
-                let height = pdfView.bounds.size.height / pdfView.scaleFactor
-                let pointY = height - pageHeights
+        if
+            let pdfView = self.pdfView,
+            let pdfInfo = self.pdfInfo,
+            !pdfInfo.isInvalidated {
             
-                pdfInfo.saveProcess(pageNum: page-1, offsetX: point.x, offsetY: pointY)
-            }
+            pdfInfo.saveProcess(pdfView.scrollView.contentOffset, self.pageMode.rawValue)
         }
     }
     
     /// 加载阅读进度
     func reloadReadProcess() {
-        if let pdfView = self.pdfView, let pdfInfo = self.pdfInfo,
-            let page = pdfView.document?.page(at: pdfInfo.pageNumber) {
-            let offset = CGPoint(x: pdfInfo.offsetX, y: pdfInfo.offsetY)
-            let destination = PDFDestination(page: page, at: offset)
-            pdfView.go(to: destination)
+        if
+            let pdfView = self.pdfView,
+            let pdfInfo = self.pdfInfo,
+            !pdfInfo.isInvalidated {
+            
+            let contentOffset = CGPoint(x: pdfInfo.contentOffsetX, y: pdfInfo.contentOffsetY)
+            self.pageMode = PageMode(rawValue: pdfInfo.pageMode)!
+            configPageDisplayStyleWithPageWidth(self.view.bounds.size.width)
+            pdfView.scrollView.setContentOffset(contentOffset, animated: false)
         }
     }
 }

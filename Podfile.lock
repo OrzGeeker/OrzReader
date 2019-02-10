@@ -1,4 +1,5 @@
 PODS:
+  - FLEX (2.4.0)
   - OpenCV (3.4.2)
   - Realm (3.13.1):
     - Realm/Headers (= 3.13.1)
@@ -8,23 +9,26 @@ PODS:
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
+  - FLEX
   - OpenCV
   - RealmSwift
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - FLEX
     - OpenCV
     - Realm
     - RealmSwift
     - SnapKit
 
 SPEC CHECKSUMS:
+  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   OpenCV: 452909747854c92e0f59670961ed5131f5286cb5
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: cef7b2a4eb1b4516dae83bd5b26ee169b3db4bd3
+PODFILE CHECKSUM: a41fe5c6e4af99a4125cc301c1065a4433b7e1fd
 
 COCOAPODS: 1.5.3

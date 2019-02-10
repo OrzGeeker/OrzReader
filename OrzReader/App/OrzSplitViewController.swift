@@ -17,6 +17,8 @@ class OrzSplitViewController: UISplitViewController {
                     let detailVC = OrzDetailViewController()
                     detailVC.pdfInfo = pdfInfo
                     let detailNVC = OrzNavigationController(rootViewController: detailVC)
+                    detailNVC.hidesBarsOnSwipe = true
+                    detailNVC.hidesBarsOnTap = true
                     self.showDetailViewController(detailNVC, sender: nil)
                 } else if let detailVC = nvc.topViewController as? OrzDetailViewController {
                     detailVC.pdfInfo = pdfInfo

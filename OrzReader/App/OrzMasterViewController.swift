@@ -54,8 +54,7 @@ class OrzMasterViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: tableViewCellId)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor.white
-        
+
         self.view.addSubview(self.tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()

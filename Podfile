@@ -9,5 +9,6 @@ target 'OrzReader' do
   pod 'OpenCV'
   pod 'SnapKit'
   pod 'RealmSwift'
+  pod 'FLEX'
 
 end

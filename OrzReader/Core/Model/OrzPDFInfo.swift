@@ -13,9 +13,9 @@ import RealmSwift
     dynamic var createDate: Date = Date()
     dynamic var title: String? = nil
     dynamic var urlStr: String? = nil
-    dynamic var pageNumber: Int = 0
-    dynamic var offsetX: CGFloat = 0
-    dynamic var offsetY: CGFloat = 0
+    dynamic var contentOffsetX: CGFloat = 0
+    dynamic var contentOffsetY: CGFloat = 0
+    dynamic var pageMode: Int = 0
     
     override class func primaryKey() -> String? { return "id" }
     
@@ -71,12 +71,12 @@ extension OrzPDFInfo {
         }
     }
     
-    func saveProcess(pageNum: Int, offsetX: CGFloat, offsetY: CGFloat) {
+    func saveProcess(_ contentOffset: CGPoint, _ pageMode: Int) {
         let realm = try! Realm()
         try! realm.write {
-            self.pageNumber = pageNum
-            self.offsetX = offsetX
-            self.offsetY = offsetY
+            self.contentOffsetX = contentOffset.x
+            self.contentOffsetY = contentOffset.y
+            self.pageMode = pageMode
         }
     }
 }
