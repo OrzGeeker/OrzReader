@@ -31,6 +31,7 @@
 		027B7959ED1A35DC00AB7FB4 /* Pods-OrzReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrzReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader.debug.xcconfig"; sourceTree = "<group>"; };
 		B12C48ACA5A3B66B4D1FEC1A /* Pods_OrzReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrzReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF738B3783C9A3A5CEFF1011 /* Pods-OrzReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrzReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader.release.xcconfig"; sourceTree = "<group>"; };
+		F330E4A02211256700F7E9CF /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		F340CE12220C3C4800E5F0E5 /* OrzReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrzReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F340CE15220C3C4800E5F0E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F340CE1C220C3C4900E5F0E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		D6D71BEBE8B5176427C868D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F330E4A02211256700F7E9CF /* ARKit.framework */,
 				B12C48ACA5A3B66B4D1FEC1A /* Pods_OrzReader.framework */,
 			);
 			name = Frameworks;
@@ -446,7 +448,8 @@
 			baseConfigurationReference = 027B7959ED1A35DC00AB7FB4 /* Pods-OrzReader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2N62934Y28;
 				INFOPLIST_FILE = OrzReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -455,6 +458,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = OrzReader;
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/joker/Desktop/OrzReader/OrzReader/Core/OrzReaderBridge.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -466,7 +470,8 @@
 			baseConfigurationReference = CF738B3783C9A3A5CEFF1011 /* Pods-OrzReader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 2N62934Y28;
 				INFOPLIST_FILE = OrzReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -475,6 +480,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = OrzReader;
 				SWIFT_OBJC_BRIDGING_HEADER = /Users/joker/Desktop/OrzReader/OrzReader/Core/OrzReaderBridge.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
