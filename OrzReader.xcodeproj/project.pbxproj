@@ -15,7 +15,6 @@
 		F340CE33220C3FF400E5F0E5 /* OrzPDFPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE2F220C3FF400E5F0E5 /* OrzPDFPage.swift */; };
 		F340CE34220C3FF400E5F0E5 /* OrzPDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE30220C3FF400E5F0E5 /* OrzPDFViewController.swift */; };
 		F340CE35220C3FF400E5F0E5 /* OrzPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE31220C3FF400E5F0E5 /* OrzPDFView.swift */; };
-		F340CE37220C418B00E5F0E5 /* pdf.png in Resources */ = {isa = PBXBuildFile; fileRef = F340CE36220C418B00E5F0E5 /* pdf.png */; };
 		F340CE61220C620900E5F0E5 /* OrzSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE60220C620900E5F0E5 /* OrzSplitViewController.swift */; };
 		F340CE63220C62C600E5F0E5 /* OrzMasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE62220C62C600E5F0E5 /* OrzMasterViewController.swift */; };
 		F340CE65220C62E500E5F0E5 /* OrzDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340CE64220C62E500E5F0E5 /* OrzDetailViewController.swift */; };
@@ -43,7 +42,6 @@
 		F340CE2F220C3FF400E5F0E5 /* OrzPDFPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrzPDFPage.swift; sourceTree = "<group>"; };
 		F340CE30220C3FF400E5F0E5 /* OrzPDFViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrzPDFViewController.swift; sourceTree = "<group>"; };
 		F340CE31220C3FF400E5F0E5 /* OrzPDFView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrzPDFView.swift; sourceTree = "<group>"; };
-		F340CE36220C418B00E5F0E5 /* pdf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdf.png; sourceTree = "<group>"; };
 		F340CE3F220C45FF00E5F0E5 /* OrzReaderBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrzReaderBridge.h; sourceTree = "<group>"; };
 		F340CE60220C620900E5F0E5 /* OrzSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzSplitViewController.swift; sourceTree = "<group>"; };
 		F340CE62220C62C600E5F0E5 /* OrzMasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzMasterViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 				F340CE69220C92F400E5F0E5 /* Model */,
 				F340CE27220C3F9100E5F0E5 /* OrzReader.swift */,
 				F340CE3F220C45FF00E5F0E5 /* OrzReaderBridge.h */,
-				F340CE36220C418B00E5F0E5 /* pdf.png */,
 				F340CE2A220C3FE300E5F0E5 /* OpenCV */,
 				F340CE2F220C3FF400E5F0E5 /* OrzPDFPage.swift */,
 				F340CE31220C3FF400E5F0E5 /* OrzPDFView.swift */,
@@ -231,7 +228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F340CE37220C418B00E5F0E5 /* pdf.png in Resources */,
 				F340CE20220C3C4900E5F0E5 /* LaunchScreen.storyboard in Resources */,
 				F37D3CDE220FF7990071189D /* README.md in Resources */,
 				F340CE1D220C3C4900E5F0E5 /* Assets.xcassets in Resources */,

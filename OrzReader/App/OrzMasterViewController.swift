@@ -16,7 +16,25 @@ class OrzMasterViewController: UIViewController {
     private var itemsToken: NotificationToken?
     
     var tableView: UITableView!
-    let tableViewCellId = "cell" 
+    let tableViewCellId = "cell"
+    
+    lazy var emptyView: UIView = {
+       
+        let empty = UIView(frame: CGRect.zero)
+        
+        let tip = UILabel(frame: CGRect.zero)
+        tip.numberOfLines = 2
+        tip.text = "还没有导入图书，您可以使用分享功能或AirDrop从其它应用导入PDF图书进行阅读"
+        
+        empty.addSubview(tip)
+        tip.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.left.equalToSuperview().offset(16)
+            make.right.equalToSuperview().offset(-16)
+        }
+        empty.isHidden = true
+        return empty
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +68,8 @@ class OrzMasterViewController: UIViewController {
     
     func setupUI() {
         
+        self.view.backgroundColor = UIColor.white
+        
         tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: tableViewCellId)
         tableView.delegate = self
@@ -57,6 +77,11 @@ class OrzMasterViewController: UIViewController {
 
         self.view.addSubview(self.tableView)
         tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        self.view.addSubview(emptyView)
+        emptyView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
         
@@ -87,7 +112,10 @@ extension OrzMasterViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items?.count ?? 0
+        let itemCount = items?.count ?? 0
+        emptyView.isHidden = itemCount > 0
+        tableView.isHidden = !emptyView.isHidden
+        return itemCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

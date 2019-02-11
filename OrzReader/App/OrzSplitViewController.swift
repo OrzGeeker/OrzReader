@@ -71,3 +71,30 @@ extension OrzSplitViewController {
         }
     }
 }
+
+#if DEBUG
+
+import FLEX
+
+extension OrzSplitViewController {
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.becomeFirstResponder()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.resignFirstResponder()
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            FLEXManager.shared().showExplorer()
+        }
+    }
+}
+#endif

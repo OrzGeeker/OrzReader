@@ -53,6 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+// 锁屏设置
 extension AppDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return OrzConfigManager.shared.supportedInterfaceOrientations

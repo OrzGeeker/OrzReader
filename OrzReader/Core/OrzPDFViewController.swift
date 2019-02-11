@@ -33,8 +33,12 @@ class OrzPDFViewController: UIViewController {
     
     lazy var lockScreenButton: UIButton = {
         let lockScreenButton = UIButton(type: .system)
-        lockScreenButton.setTitle("Lock", for: .normal)
+        let lockImage = UIImage(named: "unlockScreen")
+        lockScreenButton.setImage(lockImage, for: .normal)
+        let unlockImage = UIImage(named: "lockScreen")
+        lockScreenButton.setImage(unlockImage, for: .selected)
         lockScreenButton.addTarget(self, action: #selector(lockScreenAction(_:)), for: .touchUpInside)
+        lockScreenButton.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
         return lockScreenButton
     }()
     
@@ -72,9 +76,9 @@ class OrzPDFViewController: UIViewController {
             self.configPageDisplayStyleWithPageWidth(self.view.frame.size.width)
         })
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         reloadReadProcess()
     }
     
