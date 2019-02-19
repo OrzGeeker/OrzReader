@@ -9,6 +9,21 @@
 import UIKit
 
 class OrzSplitViewController: UISplitViewController {
+    convenience init (_ delegate: UISplitViewControllerDelegate?, displayMode: UISplitViewController.DisplayMode = .primaryOverlay) {
+        self.init()
+        
+        let master = OrzNavigationController(rootViewController: OrzMasterViewController())
+        
+        let detailVC = OrzDetailViewController()
+        detailVC.pdfInfo = OrzPDFInfo.first()
+        let detail = OrzNavigationController(rootViewController: detailVC)
+        
+        // 配置分割控制器
+        self.viewControllers = [master, detail]
+        self.preferredDisplayMode = displayMode
+        self.delegate = delegate
+    }
+    
     func showDetailViewController(_ pdfInfo: OrzPDFInfo?) {
         if let pdfInfo = pdfInfo {
             

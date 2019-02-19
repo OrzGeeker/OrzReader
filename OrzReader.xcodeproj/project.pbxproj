@@ -67,6 +67,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EFC7A30221C26E000318AC7 /* SplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F340CE60220C620900E5F0E5 /* OrzSplitViewController.swift */,
+				F37D3CD8220E5F700071189D /* OrzSplitViewControllerDelegate.swift */,
+				0EFC7A32221C26FD00318AC7 /* Detail */,
+				0EFC7A31221C26F400318AC7 /* Master */,
+				F37D3CDA220EF61C0071189D /* Utils */,
+			);
+			path = SplitViewController;
+			sourceTree = "<group>";
+		};
+		0EFC7A31221C26F400318AC7 /* Master */ = {
+			isa = PBXGroup;
+			children = (
+				F340CE62220C62C600E5F0E5 /* OrzMasterViewController.swift */,
+			);
+			path = Master;
+			sourceTree = "<group>";
+		};
+		0EFC7A32221C26FD00318AC7 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F340CE64220C62E500E5F0E5 /* OrzDetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		9747225803B1EE1A23B176FD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,11 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				F340CE15220C3C4800E5F0E5 /* AppDelegate.swift */,
-				F37D3CDA220EF61C0071189D /* Utils */,
-				F37D3CD8220E5F700071189D /* OrzSplitViewControllerDelegate.swift */,
-				F340CE60220C620900E5F0E5 /* OrzSplitViewController.swift */,
-				F340CE62220C62C600E5F0E5 /* OrzMasterViewController.swift */,
-				F340CE64220C62E500E5F0E5 /* OrzDetailViewController.swift */,
+				0EFC7A30221C26E000318AC7 /* SplitViewController */,
 			);
 			path = App;
 			sourceTree = "<group>";

@@ -11,35 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-    
-    // 分割控制器代理
-    let splitVC = OrzSplitViewController()
-    
-    let master = OrzNavigationController(rootViewController: OrzMasterViewController())
-    let detail = OrzNavigationController(rootViewController: OrzDetailViewController())
-    
+    var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds)
     let splitVCDelegate = OrzSplitViewControllerDelegate()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // 创建窗口
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
-        if let detailVC = detail.topViewController as? OrzDetailViewController {
-            detailVC.pdfInfo = OrzPDFInfo.first()
-        }
-        
-        // 构建分割控制器
-        splitVC.viewControllers = [master, detail]
-        splitVC.preferredDisplayMode = .primaryOverlay
-        splitVC.delegate = splitVCDelegate
-        
         // 设置应用根控制器
-        window?.rootViewController = splitVC
+        window?.rootViewController = OrzSplitViewController(splitVCDelegate)
         window?.makeKeyAndVisible()
-        
         return true
     }
     
@@ -51,11 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return ret
     }
-}
-
-
-// 锁屏设置
-extension AppDelegate {
+    
+    // 锁屏设置
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return OrzConfigManager.shared.supportedInterfaceOrientations
     }

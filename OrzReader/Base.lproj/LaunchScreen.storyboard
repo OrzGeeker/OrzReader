@@ -27,8 +27,8 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="nHw-xI-3Ai" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-10" id="5iT-77-5Hp"/>
-                            <constraint firstItem="nHw-xI-3Ai" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="w1D-SY-1qX"/>
+                            <constraint firstItem="nHw-xI-3Ai" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="nQh-bI-pmu"/>
+                            <constraint firstItem="nHw-xI-3Ai" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="y7o-Sk-3ae"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
