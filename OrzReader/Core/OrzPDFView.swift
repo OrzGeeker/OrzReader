@@ -27,12 +27,15 @@ class OrzPDFView: PDFView {
     
     var scrollView: UIScrollView!
     
-    init(url: URL) {
+    init(pdfInfo: OrzPDFInfo) {
         super.init(frame: CGRect.zero)
         
-        let pdf = PDFDocument(url: url)
-        pdf?.delegate = self;
-        document = pdf
+        if let urlStr = pdfInfo.urlStr, let pdfURL = URL(string: urlStr) {
+            let pdf = PDFDocument(url: pdfURL)
+            pdf?.delegate = self
+            document = pdf
+        }
+        
         displayMode = .singlePageContinuous
         displaysPageBreaks = false
         displayDirection = .vertical

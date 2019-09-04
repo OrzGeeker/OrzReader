@@ -1,34 +1,29 @@
 PODS:
-  - FLEX (2.4.0)
-  - OpenCV (3.4.2)
-  - Realm (3.13.1):
-    - Realm/Headers (= 3.13.1)
-  - Realm/Headers (3.13.1)
-  - RealmSwift (3.13.1):
-    - Realm (= 3.13.1)
-  - SnapKit (4.2.0)
+  - CryptoSwift (1.0.0)
+  - FLEX (3.0.0)
+  - OpenCV (4.1.0)
+  - Realm (3.17.3):
+    - Realm/Headers (= 3.17.3)
+  - Realm/Headers (3.17.3)
+  - RealmSwift (3.17.3):
+    - Realm (= 3.17.3)
+  - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - CryptoSwift
   - FLEX
   - OpenCV
   - RealmSwift
   - SnapKit
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - FLEX
-    - OpenCV
-    - Realm
-    - RealmSwift
-    - SnapKit
-
 SPEC CHECKSUMS:
-  FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
-  OpenCV: 452909747854c92e0f59670961ed5131f5286cb5
-  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
-  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
-  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
+  FLEX: d66c759bce0f6ebbbf472c742380874d846f2883
+  OpenCV: 52cd4d72ff29e2be83421477aec5447320b7fb19
+  Realm: 5a1d9d47bfc101dd597668b1a8af4288a2557f6d
+  RealmSwift: b7fdc2d18616621c31df5c7a398a45a2163f8eb0
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: e1ef7a2de24aa2dec99a2f521b661cfa5703c4cc
+PODFILE CHECKSUM: ac9a151786bc379e2bccf6be22ba63a4562c6270
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0

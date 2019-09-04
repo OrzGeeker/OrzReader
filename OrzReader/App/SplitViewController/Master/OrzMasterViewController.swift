@@ -129,7 +129,8 @@ extension OrzMasterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if let splitVC = self.splitViewController as? OrzSplitViewController {
-            splitVC.showDetailViewController(items?[indexPath.row])
+            let pdfInfo = items?[indexPath.row]
+            splitVC.showDetailViewController(pdfInfo)
         }
     }
 }

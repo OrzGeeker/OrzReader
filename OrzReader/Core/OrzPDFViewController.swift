@@ -163,16 +163,16 @@ extension OrzPDFViewController {
     
     func configurePDFView() {
     
-        guard let pdfInfo = self.pdfInfo, let pdfURL = pdfInfo.url else {
+        guard let pdfInfo = self.pdfInfo else {
             self.pdfView?.removeFromSuperview()
             self.pdfView = nil
             return
         }
         
-        if let pdfView = self.pdfView {
-            if pdfView.document?.documentURL != pdfURL { pdfView.document = PDFDocument(url: pdfURL) }
-        } else{
-            pdfView = OrzPDFView(url: pdfURL)
+        if let pdfView = self.pdfView, let urlStr = self.pdfInfo?.urlStr, let pdfURL = URL(string: urlStr)  {
+            pdfView.document = PDFDocument(url: pdfURL)
+        } else {
+            pdfView = OrzPDFView(pdfInfo: pdfInfo)
             self.view.addSubview(pdfView!)
 
             pdfView!.snp.makeConstraints { (make) in

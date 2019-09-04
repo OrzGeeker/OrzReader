@@ -9,10 +9,4 @@
 import UIKit
 
 public class OrzReader {
-    @discardableResult
-    class func openPDF(_ url: URL) -> Bool {
-        guard url.scheme == "file", url.pathExtension == "pdf" else { return false }
-        OrzPDFInfo(url: url).save()
-        return true
-    }
 }

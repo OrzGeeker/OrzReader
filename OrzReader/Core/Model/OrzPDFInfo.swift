@@ -7,30 +7,58 @@
 //
 
 import RealmSwift
+import CryptoSwift
 
 @objcMembers class OrzPDFInfo: Object {
+    
     dynamic var id = UUID().uuidString
     dynamic var createDate: Date = Date()
     dynamic var title: String? = nil
     dynamic var urlStr: String? = nil
+    dynamic var sha1: String? = nil
     dynamic var contentOffsetX: CGFloat = 0
     dynamic var contentOffsetY: CGFloat = 0
     dynamic var pageMode: Int = 0
+    private dynamic var pdfData: Data? = nil
     
     override class func primaryKey() -> String? { return "id" }
     
-    convenience init(url: URL) {
-        self.init()
-        self.title = url.deletingPathExtension().lastPathComponent
-        self.urlStr = url.absoluteString
+    override class func ignoredProperties() -> [String] {
+        return ["pdfData"]
     }
     
-    var url: URL? {
-        if let urlStr = self.urlStr {
-            return URL(string: urlStr)
-        } else {
+    convenience init?(url: URL) {
+        
+        guard url.scheme == "file", url.pathExtension == "pdf" else {
             return nil
         }
+        
+        self.init()
+        self.urlStr = url.absoluteString
+        self.title = url.deletingPathExtension().lastPathComponent
+        self.pdfData = try? Data(contentsOf: url)
+        self.sha1 = self.pdfData?.sha1().toHexString()
+    }
+    
+    private var pdfUrl: URL? {
+        if let documents_url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first, let sha1 = self.sha1 {
+            return documents_url.appendingPathComponent(sha1)
+        }
+        return nil
+    }
+    
+    func saveToDocuments() {
+        guard let pdfUrl = self.pdfUrl else {
+            return
+        }
+        try? self.pdfData?.write(to: pdfUrl)
+    }
+    
+    func removeFromDocuments() {
+        guard let pdfUrl = self.pdfUrl else {
+            return
+        }
+        try? FileManager.default.removeItem(at:pdfUrl)
     }
 }
 
@@ -52,22 +80,30 @@ extension OrzPDFInfo {
     func save() {
         
         let realm = try! Realm()
-        try! realm.write {
-            realm.add(self)
+        
+        guard (self.sha1 != nil) && self.sha1!.count > 0 else {
+            return
+        }
+        
+        let exists = OrzPDFInfo.all().filter("sha1 = '\(self.sha1!)'")
+        
+        if exists.count == 0 {
+            try! realm.write {
+                // 保存PDF文件到Documents档中
+                self.saveToDocuments()
+                self.urlStr = self.pdfUrl?.absoluteString
+                realm.add(self)
+            }
         }
     }
     
     // Delete
     func delete() {
         
-        if let url = self.url {
-            try? FileManager.default.removeItem(at:url)
-        }
-        
         let realm = try! Realm()
         try! realm.write {
-
             realm.delete(self)
+            self.removeFromDocuments()
         }
     }
     
