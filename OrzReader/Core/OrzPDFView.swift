@@ -30,21 +30,21 @@ class OrzPDFView: PDFView {
     init(pdfInfo: OrzPDFInfo) {
         super.init(frame: CGRect.zero)
         
-        if let urlStr = pdfInfo.urlStr, let pdfURL = URL(string: urlStr) {
+        if let pdfURL = pdfInfo.pdfUrl {
             let pdf = PDFDocument(url: pdfURL)
             pdf?.delegate = self
             document = pdf
-        }
-        
-        displayMode = .singlePageContinuous
-        displaysPageBreaks = false
-        displayDirection = .vertical
-        subviews.forEach { (subview) in
-            if let scrollView = subview as? UIScrollView {
-                scrollView.showsHorizontalScrollIndicator = false
-                scrollView.showsVerticalScrollIndicator = false
-                scrollView.scrollsToTop = false
-                self.scrollView = scrollView
+            
+            displayMode = .singlePageContinuous
+            displaysPageBreaks = false
+            displayDirection = .vertical
+            subviews.forEach { (subview) in
+                if let scrollView = subview as? UIScrollView {
+                    scrollView.showsHorizontalScrollIndicator = false
+                    scrollView.showsVerticalScrollIndicator = false
+                    scrollView.scrollsToTop = false
+                    self.scrollView = scrollView
+                }
             }
         }
     }

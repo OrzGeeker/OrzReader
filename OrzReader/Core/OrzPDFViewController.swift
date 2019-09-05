@@ -169,7 +169,7 @@ extension OrzPDFViewController {
             return
         }
         
-        if let pdfView = self.pdfView, let urlStr = self.pdfInfo?.urlStr, let pdfURL = URL(string: urlStr)  {
+        if let pdfView = self.pdfView, let pdfURL = pdfInfo.pdfUrl  {
             pdfView.document = PDFDocument(url: pdfURL)
         } else {
             pdfView = OrzPDFView(pdfInfo: pdfInfo)
@@ -194,7 +194,7 @@ extension OrzPDFViewController {
         }
         
         // 配置页面显示样式
-        configPageDisplayStyleWithPageWidth(self.view.bounds.size.width)
+//        configPageDisplayStyleWithPageWidth(self.view.bounds.size.width)
     }
     
     func configureEmptyView() {

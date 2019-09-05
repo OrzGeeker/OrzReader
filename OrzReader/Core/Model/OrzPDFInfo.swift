@@ -19,12 +19,15 @@ import CryptoSwift
     dynamic var contentOffsetX: CGFloat = 0
     dynamic var contentOffsetY: CGFloat = 0
     dynamic var pageMode: Int = 0
-    private dynamic var pdfData: Data? = nil
     
     override class func primaryKey() -> String? { return "id" }
     
-    override class func ignoredProperties() -> [String] {
-        return ["pdfData"]
+    var pdfUrl: URL? {
+        
+        if let documents_url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true), let sha1 = self.sha1 {
+            return documents_url.appendingPathComponent(sha1)
+        }
+        return nil
     }
     
     convenience init?(url: URL) {
@@ -36,22 +39,18 @@ import CryptoSwift
         self.init()
         self.urlStr = url.absoluteString
         self.title = url.deletingPathExtension().lastPathComponent
-        self.pdfData = try? Data(contentsOf: url)
-        self.sha1 = self.pdfData?.sha1().toHexString()
-    }
-    
-    private var pdfUrl: URL? {
-        if let documents_url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first, let sha1 = self.sha1 {
-            return documents_url.appendingPathComponent(sha1)
-        }
-        return nil
+        self.sha1 = (try? Data(contentsOf: url))?.sha1().toHexString()
     }
     
     func saveToDocuments() {
-        guard let pdfUrl = self.pdfUrl else {
+        guard let pdfUrl = self.pdfUrl, let urlStr = self.urlStr else {
             return
         }
-        try? self.pdfData?.write(to: pdfUrl)
+
+        if let url = URL(string: urlStr), let pdfData = try? Data(contentsOf: url) {
+            try? pdfData.write(to: pdfUrl)
+            self.urlStr = self.pdfUrl?.absoluteString
+        }
     }
     
     func removeFromDocuments() {
@@ -91,7 +90,6 @@ extension OrzPDFInfo {
             try! realm.write {
                 // 保存PDF文件到Documents档中
                 self.saveToDocuments()
-                self.urlStr = self.pdfUrl?.absoluteString
                 realm.add(self)
             }
         }
