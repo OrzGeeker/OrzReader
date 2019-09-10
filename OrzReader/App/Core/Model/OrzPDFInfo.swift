@@ -9,7 +9,7 @@
 import RealmSwift
 import CryptoSwift
 
-@objcMembers class OrzPDFInfo: Object {
+@objcMembers class OrzPDFInfo: Object, Identifiable {
     
     dynamic var id = UUID().uuidString
     dynamic var createDate: Date = Date()
@@ -37,9 +37,10 @@ import CryptoSwift
         }
         
         self.init()
-        self.urlStr = url.absoluteString
+        
         self.title = url.deletingPathExtension().lastPathComponent
         self.sha1 = (try? Data(contentsOf: url))?.sha1().toHexString()
+        self.urlStr = url.absoluteString
     }
     
     func saveToDocuments() {
