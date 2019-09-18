@@ -17,9 +17,3 @@ struct OrzPDFDetailView: View {
             .navigationBarTitle("\(pdfInfo.title ?? "图书详情")", displayMode: .inline)
     }
 }
-
-struct OrzPDFDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrzPDFDetailView(pdfInfo: OrzPDFInfo.all().first!)
-    }
-}

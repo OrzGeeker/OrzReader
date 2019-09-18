@@ -33,9 +33,3 @@ struct OrzPDFView: UIViewRepresentable {
 extension OrzPDFView {
     // TODO： implementation for pdfview
 }
-
-struct OrzPDFView_Previews: PreviewProvider {
-    static var previews: some View {
-        OrzPDFView(pdfInfo: OrzPDFInfo.all().first!)
-    }
-}
