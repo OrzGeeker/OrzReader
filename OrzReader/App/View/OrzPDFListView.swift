@@ -14,7 +14,7 @@ struct OrzPDFListView: View {
     
     var body: some View {
         
-        VStack {
+        VStack { 
             NavigationView {
                 List(pdfStore.pdfs) { pdfInfo in
                     NavigationLink(destination: OrzPDFDetailView(pdfInfo: pdfInfo)) {
