@@ -12,13 +12,9 @@ import CryptoSwift
 @objcMembers class OrzPDFInfo: Object, Identifiable {
     
     dynamic var id = UUID().uuidString
-    dynamic var createDate: Date = Date()
     dynamic var title: String? = nil
     dynamic var urlStr: String? = nil
     dynamic var sha1: String? = nil
-    dynamic var contentOffsetX: CGFloat = 0
-    dynamic var contentOffsetY: CGFloat = 0
-    dynamic var pageMode: Int = 0
     
     override class func primaryKey() -> String? { return "id" }
     
@@ -109,9 +105,6 @@ extension OrzPDFInfo {
     func saveProcess(_ contentOffset: CGPoint, _ pageMode: Int) {
         let realm = try! Realm()
         try! realm.write {
-            self.contentOffsetX = contentOffset.x
-            self.contentOffsetY = contentOffset.y
-            self.pageMode = pageMode
         }
     }
 }

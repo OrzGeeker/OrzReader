@@ -7,11 +7,7 @@ target 'OrzReader' do
 
   # Pods for OrzReader
   pod 'OpenCV'
-  pod 'SnapKit'
   pod 'RealmSwift'
   pod 'CryptoSwift'
-  
-  # For Debug
-  pod 'FLEX', :configurations => ['Debug']
 
 end
