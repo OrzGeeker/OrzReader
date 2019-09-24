@@ -102,7 +102,7 @@ extension OrzPDFInfo {
         }
     }
     
-    func saveProcess(_ contentOffset: CGPoint, _ pageMode: Int) {
+    func saveProcess() {
         let realm = try! Realm()
         try! realm.write {
         }

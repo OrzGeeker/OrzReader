@@ -11,10 +11,17 @@ import SwiftUI
 struct OrzPDFDetailView: View {
     
     var pdfInfo: OrzPDFInfo
+    
+    @State var hideStatusBar: Bool = false
 
     var body: some View {
         OrzPDFView(pdfInfo: pdfInfo)
             .navigationBarTitle("\(pdfInfo.title ?? "图书详情")", displayMode: .inline)
-            .edgesIgnoringSafeArea(.horizontal)
+            .edgesIgnoringSafeArea([.horizontal, .bottom])
+            .statusBar(hidden: hideStatusBar)
+            .onDisappear {
+                self.pdfInfo.saveProcess()
+        }
+        
     }
 }
