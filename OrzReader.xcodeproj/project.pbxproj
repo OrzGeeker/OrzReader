@@ -482,6 +482,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader.OrzReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/OrzReader/App/Core/OrzReaderBridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -504,6 +505,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader.OrzReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/OrzReader/App/Core/OrzReaderBridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

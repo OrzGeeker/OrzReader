@@ -15,5 +15,6 @@ struct OrzPDFDetailView: View {
     var body: some View {
         OrzPDFView(pdfInfo: pdfInfo)
             .navigationBarTitle("\(pdfInfo.title ?? "图书详情")", displayMode: .inline)
+            .edgesIgnoringSafeArea(.horizontal)
     }
 }

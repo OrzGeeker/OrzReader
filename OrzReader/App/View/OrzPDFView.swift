@@ -21,15 +21,21 @@ struct OrzPDFView: UIViewRepresentable {
             pdfView.displayMode = .singlePageContinuous
             pdfView.displayDirection = .vertical
             pdfView.displaysPageBreaks = false
-            pdfView.autoScales = true
+            pdfView.autoScales = false
         }
         return pdfView
     }
     
     func updateUIView(_ pdfView: PDFView, context: UIViewRepresentableContext<OrzPDFView>) {
+        var screenWidth: CGFloat
+        if let size = pdfView.currentPage?.bounds(for: pdfView.displayBox).size {
+            let contentScaleFactor =  screenWidth / size.width
+            pdfView.scaleFactor = contentScaleFactor
+            pdfView.minScaleFactor = contentScaleFactor
+            pdfView.maxScaleFactor = contentScaleFactor
+        }
     }
 }
 
 extension OrzPDFView {
-    // TODO： implementation for pdfview
 }
