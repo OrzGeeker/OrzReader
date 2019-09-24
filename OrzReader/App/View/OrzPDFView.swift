@@ -27,7 +27,7 @@ struct OrzPDFView: UIViewRepresentable {
     }
     
     func updateUIView(_ pdfView: PDFView, context: UIViewRepresentableContext<OrzPDFView>) {
-        pdfView.layoutDocumentView()
+
         if  let currentWindowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
             let size = pdfView.currentPage?.bounds(for: pdfView.displayBox).size {
             let screenWidth = currentWindowScene.screen.bounds.size.width
