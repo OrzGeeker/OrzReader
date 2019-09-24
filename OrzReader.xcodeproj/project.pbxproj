@@ -189,7 +189,6 @@
 				E2ABD9FB23214C4D00DD3D28 /* Frameworks */,
 				E2ABD9FC23214C4D00DD3D28 /* Resources */,
 				E134713BAC78C98E2A230B44 /* [CP] Embed Pods Frameworks */,
-				DA14AB5D200957546E69AD67 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -270,53 +269,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DA14AB5D200957546E69AD67 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E134713BAC78C98E2A230B44 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLEX.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

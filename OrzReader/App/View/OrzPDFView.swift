@@ -30,11 +30,12 @@ struct OrzPDFView: UIViewRepresentable {
         pdfView.layoutDocumentView()
         if  let currentWindowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
             let size = pdfView.currentPage?.bounds(for: pdfView.displayBox).size {
-            var screenWidth = currentWindowScene.screen.bounds.size.width
+            let screenWidth = currentWindowScene.screen.bounds.size.width
             let contentScaleFactor = screenWidth / size.width
-            pdfView.scaleFactor = contentScaleFactor
             pdfView.minScaleFactor = contentScaleFactor
             pdfView.maxScaleFactor = contentScaleFactor
+            pdfView.scaleFactor = contentScaleFactor
+            pdfView.scaleFactor = contentScaleFactor
         }
     }
 }

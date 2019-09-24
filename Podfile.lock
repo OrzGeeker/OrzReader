@@ -16,6 +16,15 @@ DEPENDENCIES:
   - RealmSwift
   - SnapKit
 
+SPEC REPOS:
+  trunk:
+    - CryptoSwift
+    - FLEX
+    - OpenCV
+    - Realm
+    - RealmSwift
+    - SnapKit
+
 SPEC CHECKSUMS:
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   FLEX: d66c759bce0f6ebbbf472c742380874d846f2883
@@ -26,4 +35,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 383167fb79b1f5bb720e9f46a4ae3633945b5fe9
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.8.0.beta.1
