@@ -9,12 +9,37 @@
 import RealmSwift
 import CryptoSwift
 
+enum OrzPDFPageContentMode {
+    
+    case aspectFit
+    case aspectFill
+    
+    mutating func toggle() {
+        switch self {
+        case .aspectFit:
+            self = .aspectFill
+        case .aspectFill:
+            self = .aspectFit
+        }
+    }
+    
+    var title: String {
+        switch self {
+        case .aspectFit:
+            return "Fill"
+        case .aspectFill:
+            return "Fit"
+        }
+    }
+}
+
 @objcMembers class OrzPDFInfo: Object, Identifiable {
     
     dynamic var id = UUID().uuidString
     dynamic var title: String? = nil
     dynamic var urlStr: String? = nil
     dynamic var sha1: String? = nil
+    dynamic var pageMode: OrzPDFPageContentMode = .aspectFit
     
     override class func primaryKey() -> String? { return "id" }
     

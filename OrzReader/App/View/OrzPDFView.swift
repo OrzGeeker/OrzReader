@@ -12,7 +12,9 @@ import PDFKit
 struct OrzPDFView: UIViewRepresentable {
     
     var pdfInfo: OrzPDFInfo
-
+    
+    @Binding var contentMode: OrzPDFPageContentMode
+    
     func makeUIView(context: UIViewRepresentableContext<OrzPDFView>) -> PDFView {
          
         let pdfView = PDFView(frame: .zero)
@@ -27,18 +29,45 @@ struct OrzPDFView: UIViewRepresentable {
     }
     
     func updateUIView(_ pdfView: PDFView, context: UIViewRepresentableContext<OrzPDFView>) {
-
-        if  let currentWindowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-            let size = pdfView.currentPage?.bounds(for: pdfView.displayBox).size {
-            let screenWidth = currentWindowScene.screen.bounds.size.width
-            let contentScaleFactor = screenWidth / size.width
-            pdfView.minScaleFactor = contentScaleFactor
-            pdfView.maxScaleFactor = contentScaleFactor
-            pdfView.scaleFactor = contentScaleFactor
-            pdfView.scaleFactor = contentScaleFactor
-        }
+        layoutPDFView(pdfView)
     }
 }
 
 extension OrzPDFView {
+    
+    func layoutPDFView(_ pdfView: PDFView) {
+        
+        guard let currentWindowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+            return
+        }
+        
+        let screenWidth = currentWindowScene.screen.bounds.size.width
+
+        switch contentMode {
+        case .aspectFit:
+            if let contentWidth = pdfView.currentPage?.bounds(for: pdfView.displayBox).size.width {
+                setPDFView(pdfView, with: screenWidth / contentWidth)
+            }
+        case .aspectFill:
+            if let pageImage = pdfView.currentPage?.thumbnail(of: pdfView.bounds.size, for: pdfView.displayBox),
+                let pageWidth = pdfView.currentPage?.bounds(for: pdfView.displayBox).size.width {
+                setPDFView(pdfView, with: screenWidth / (pageWidth * OpenCV.contentWidthRatio(of: pageImage)))
+            }
+        }
+    }
+    
+    func setPDFView(_ pdfView: PDFView, with scale: CGFloat) {
+    
+        pdfView.minScaleFactor = scale
+        pdfView.maxScaleFactor = scale
+        pdfView.scaleFactor = scale
+        pdfView.scaleFactor = scale
+        
+        if let scrollView = try! pdfView.subviews.filter({ (subview) throws -> Bool in
+            return subview is UIScrollView
+            }).first as? UIScrollView {
+            // 禁止水平滑动
+            scrollView.contentSize.width = 0
+        }
+    }
 }
