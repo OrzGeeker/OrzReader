@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		595BB337079018C83BFB6BB1 /* Pods_OrzReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF0A83EACA9045189C5D477 /* Pods_OrzReader.framework */; };
 		E232602A2322267C003816EC /* OrzPDFDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23260292322267C003816EC /* OrzPDFDetailView.swift */; };
 		E252CA912324E74B00EF85AB /* OrzPDFStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252CA902324E74B00EF85AB /* OrzPDFStore.swift */; };
+		E289F77B233DED3A00AD030D /* OrzPDFViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F77A233DED3A00AD030D /* OrzPDFViewCoordinator.swift */; };
 		E2ABDA0223214C4D00DD3D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA0123214C4D00DD3D28 /* AppDelegate.swift */; };
 		E2ABDA0423214C4D00DD3D28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA0323214C4D00DD3D28 /* SceneDelegate.swift */; };
 		E2ABDA0623214C4D00DD3D28 /* OrzPDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA0523214C4D00DD3D28 /* OrzPDFListView.swift */; };
@@ -28,6 +29,7 @@
 		8E0C44C4F2B3BE8D319BAFD2 /* Pods-OrzReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrzReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader.release.xcconfig"; sourceTree = "<group>"; };
 		E23260292322267C003816EC /* OrzPDFDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFDetailView.swift; sourceTree = "<group>"; };
 		E252CA902324E74B00EF85AB /* OrzPDFStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFStore.swift; sourceTree = "<group>"; };
+		E289F77A233DED3A00AD030D /* OrzPDFViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFViewCoordinator.swift; sourceTree = "<group>"; };
 		E2ABD9FE23214C4D00DD3D28 /* OrzReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrzReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ABDA0123214C4D00DD3D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2ABDA0323214C4D00DD3D28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				E2ABDA0523214C4D00DD3D28 /* OrzPDFListView.swift */,
 				E23260292322267C003816EC /* OrzPDFDetailView.swift */,
 				E2ABDA2F2321503600DD3D28 /* OrzPDFView.swift */,
+				E289F77A233DED3A00AD030D /* OrzPDFViewCoordinator.swift */,
 				E2ABDA0923214C5200DD3D28 /* Preview Content */,
 			);
 			path = View;
@@ -298,6 +301,7 @@
 				E2ABDA2823214C8000DD3D28 /* OpenCV.mm in Sources */,
 				E2ABDA302321503600DD3D28 /* OrzPDFView.swift in Sources */,
 				E2ABDA0423214C4D00DD3D28 /* SceneDelegate.swift in Sources */,
+				E289F77B233DED3A00AD030D /* OrzPDFViewCoordinator.swift in Sources */,
 				E2ABDA0623214C4D00DD3D28 /* OrzPDFListView.swift in Sources */,
 				E252CA912324E74B00EF85AB /* OrzPDFStore.swift in Sources */,
 				E232602A2322267C003816EC /* OrzPDFDetailView.swift in Sources */,
