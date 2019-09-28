@@ -10,7 +10,7 @@ import SwiftUI
 import PDFKit
 
 struct OrzPDFView: UIViewRepresentable {
-    
+
     var pdfInfo: OrzPDFInfo
     
     @Binding var contentMode: OrzPDFPageContentMode
@@ -25,8 +25,11 @@ struct OrzPDFView: UIViewRepresentable {
             pdfView.displaysPageBreaks = false
             pdfView.autoScales = false
             pdfView.delegate = context.coordinator
-            
+            context.coordinator.pdfView = pdfView
+            context.coordinator.configNotification()
             removeDoubleTapGestures(pdfView)
+            
+            
         }
         return pdfView
     }
