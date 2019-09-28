@@ -40,6 +40,7 @@ enum OrzPDFPageContentMode {
     dynamic var urlStr: String? = nil
     dynamic var sha1: String? = nil
     dynamic var pageMode: OrzPDFPageContentMode = .aspectFit
+    dynamic var lastPageNumber: Int = 0
     
     override class func primaryKey() -> String? { return "id" }
     
@@ -127,9 +128,10 @@ extension OrzPDFInfo {
         }
     }
     
-    func saveProcess() {
+    func savePageNumber(_ pageNumber: Int) {
         let realm = try! Realm()
         try! realm.write {
+            self.lastPageNumber = pageNumber
         }
     }
 }

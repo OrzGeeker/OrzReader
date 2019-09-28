@@ -8,22 +8,22 @@
 
 import PDFKit
 import Combine
+import SwiftUI
 
 class PDFViewCoordinator: NSObject, PDFViewDelegate {
     
     var pdfView: PDFView?
+    var pdfInfo: OrzPDFInfo?
+    var progress: Float?
     
     var readProcessSubscription: AnyCancellable? = nil
 
     func configNotification() {
         readProcessSubscription = NotificationCenter.default.publisher(for: .PDFViewPageChanged).sink { (notification) in
-            
             if let currentPageNumber = self.pdfView?.currentPage?.pageRef?.pageNumber,
                 let totalPageNumber = self.pdfView?.document?.pageCount {
-                
-                print("\(Float(currentPageNumber) / Float(totalPageNumber))")
+                self.progress =  Float(currentPageNumber) / Float(totalPageNumber)
             }
-            
         }
     }
 

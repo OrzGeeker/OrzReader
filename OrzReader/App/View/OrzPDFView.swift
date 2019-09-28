@@ -13,7 +13,7 @@ struct OrzPDFView: UIViewRepresentable {
 
     var pdfInfo: OrzPDFInfo
     
-    @Binding var contentMode: OrzPDFPageContentMode
+    var contentMode: OrzPDFPageContentMode
     
     func makeUIView(context: UIViewRepresentableContext<OrzPDFView>) -> PDFView {
          
@@ -26,10 +26,9 @@ struct OrzPDFView: UIViewRepresentable {
             pdfView.autoScales = false
             pdfView.delegate = context.coordinator
             context.coordinator.pdfView = pdfView
+            context.coordinator.pdfInfo = pdfInfo
             context.coordinator.configNotification()
             removeDoubleTapGestures(pdfView)
-            
-            
         }
         return pdfView
     }
@@ -44,6 +43,18 @@ struct OrzPDFView: UIViewRepresentable {
 }
 
 extension OrzPDFView {
+    
+    func saveLastReadPage(_ pdfView: PDFView) {
+        if let currentPageNumber = pdfView.currentPage?.pageRef?.pageNumber {
+            self.pdfInfo.savePageNumber(currentPageNumber)
+        }
+    }
+    
+    func goToLastReadPage(_ pdfView: PDFView) {
+        if let lastPage = pdfView.document?.page(at: pdfInfo.lastPageNumber) {
+            pdfView.go(to: lastPage)
+        }
+    }
     
     func removeDoubleTapGestures(_ pdfView: PDFView) {
         pdfView.gestureRecognizers = pdfView.gestureRecognizers?.filter({ (gesture) -> Bool in
@@ -98,6 +109,8 @@ extension OrzPDFView {
             }).first as? UIScrollView {
             // 禁止水平滑动
             scrollView.contentSize.width = 0
+            scrollView.showsVerticalScrollIndicator = false
+            scrollView.showsHorizontalScrollIndicator = false
         }
     }
 }
