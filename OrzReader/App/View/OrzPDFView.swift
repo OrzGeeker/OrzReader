@@ -8,6 +8,7 @@
 
 import SwiftUI
 import PDFKit
+import Combine
 
 struct OrzPDFView: UIViewRepresentable {
 
@@ -15,9 +16,16 @@ struct OrzPDFView: UIViewRepresentable {
     
     var contentMode: OrzPDFPageContentMode
     
+    var pdfView = PDFView(frame: .zero)
+    
+    var readProcessSubscription: AnyCancellable? = nil
+    
+    @Binding var progress: Float
+    
+    
+    
     func makeUIView(context: UIViewRepresentableContext<OrzPDFView>) -> PDFView {
-         
-        let pdfView = PDFView(frame: .zero)
+        
         if let pdfUrl = pdfInfo.pdfUrl, let document = PDFDocument(url: pdfUrl) {
             pdfView.document = document
             pdfView.displayMode = .singlePageContinuous
@@ -25,9 +33,7 @@ struct OrzPDFView: UIViewRepresentable {
             pdfView.displaysPageBreaks = false
             pdfView.autoScales = false
             pdfView.delegate = context.coordinator
-            context.coordinator.pdfView = pdfView
-            context.coordinator.pdfInfo = pdfInfo
-            context.coordinator.configNotification()
+            
             removeDoubleTapGestures(pdfView)
         }
         return pdfView
@@ -38,7 +44,9 @@ struct OrzPDFView: UIViewRepresentable {
     }
     
     func makeCoordinator() -> PDFViewCoordinator {
-        return PDFViewCoordinator()
+        let coordinator = PDFViewCoordinator(self)
+        coordinator.configNotification()
+        return coordinator
     }
 }
 

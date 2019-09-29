@@ -10,15 +10,14 @@ import SwiftUI
 
 struct OrzPDFProgressView: UIViewRepresentable {
     
-    @State var progress: Float
+    var progress: Float
     
     func makeUIView(context: UIViewRepresentableContext<OrzPDFProgressView>) -> UIProgressView {
-        let progressView = UIProgressView(progressViewStyle: .default)
+        let progressView = UIProgressView(frame: .zero)
         return progressView
     }
     
     func updateUIView(_ progressView: UIProgressView, context: UIViewRepresentableContext<OrzPDFProgressView>) {
         progressView.progress = progress
-        progressView.tintColor = .green
     }
 }

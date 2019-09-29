@@ -13,12 +13,12 @@ struct OrzPDFDetailView: View {
     
     @State var pdfInfo: OrzPDFInfo
     @State var contentMode: OrzPDFPageContentMode = .aspectFit
-    @State var progress: Float = 0.5
+    @State var progress: Float = 0
     
     var body: some View {
         VStack {
             OrzPDFProgressView(progress: progress)
-            OrzPDFView(pdfInfo: pdfInfo, contentMode: contentMode)
+            OrzPDFView(pdfInfo: pdfInfo, contentMode: contentMode, progress: $progress)
                 .navigationBarTitle("\(pdfInfo.title ?? "图书详情")", displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     self.contentMode.toggle()

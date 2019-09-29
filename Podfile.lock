@@ -13,7 +13,7 @@ DEPENDENCIES:
   - RealmSwift (= 3.18.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - CryptoSwift
     - OpenCV
     - Realm
@@ -27,4 +27,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 4b7aba65490a0a2524d6aa764fcbbb393fbacd6a
 
-COCOAPODS: 1.8.0.beta.1
+COCOAPODS: 1.8.0

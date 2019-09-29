@@ -7,22 +7,20 @@
 //
 
 import PDFKit
-import Combine
-import SwiftUI
 
 class PDFViewCoordinator: NSObject, PDFViewDelegate {
-    
-    var pdfView: PDFView?
-    var pdfInfo: OrzPDFInfo?
-    var progress: Float?
-    
-    var readProcessSubscription: AnyCancellable? = nil
+    var view: OrzPDFView
 
+    init(_ view: OrzPDFView) {
+        self.view = view        
+    }
+    
     func configNotification() {
-        readProcessSubscription = NotificationCenter.default.publisher(for: .PDFViewPageChanged).sink { (notification) in
-            if let currentPageNumber = self.pdfView?.currentPage?.pageRef?.pageNumber,
-                let totalPageNumber = self.pdfView?.document?.pageCount {
-                self.progress =  Float(currentPageNumber) / Float(totalPageNumber)
+        view.readProcessSubscription = NotificationCenter.default.publisher(for: .PDFViewPageChanged).sink { (notification) in
+            if let currentPageNumber = self.view.pdfView.currentPage?.pageRef?.pageNumber,
+                let totalPageNumber = self.view.pdfView.document?.pageCount {
+                self.view.progress =  Float(currentPageNumber) / Float(totalPageNumber)
+                print(self.view.progress)
             }
         }
     }
