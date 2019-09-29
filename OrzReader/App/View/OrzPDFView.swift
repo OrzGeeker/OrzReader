@@ -20,6 +20,7 @@ struct OrzPDFView: UIViewRepresentable {
     var scale: CGFloat?
     
     var lastContentMode: OrzPDFPageContentMode?
+    var isLandscape: Bool?
     
     func makeUIView(context: UIViewRepresentableContext<OrzPDFView>) -> PDFView {
         

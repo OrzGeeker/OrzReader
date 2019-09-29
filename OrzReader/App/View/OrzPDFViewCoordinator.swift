@@ -29,18 +29,19 @@ class PDFViewCoordinator: NSObject {
     }
     
     func updateContentMode() {
-        
-        guard view.lastContentMode != view.pdfStore.contentMode else {
-            return
-        }
-        
-        view.lastContentMode = view.pdfStore.contentMode
-        
+
         guard let currentWindowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return
         }
         
         let isLandscape = currentWindowScene.interfaceOrientation == .landscapeLeft || currentWindowScene.interfaceOrientation == .landscapeRight
+        
+        guard view.lastContentMode != view.pdfStore.contentMode || view.isLandscape != isLandscape else {
+            return
+        }
+        view.lastContentMode = view.pdfStore.contentMode
+        view.isLandscape = isLandscape
+        
         let screenWidth = currentWindowScene.screen.bounds.size.width
         
         if let currentPageSize = view.pdfView.currentPage?.bounds(for: view.pdfView.displayBox).size {
@@ -51,7 +52,7 @@ class PDFViewCoordinator: NSObject {
                     let scale = displayWidth / contentWidth
                     setPDFView(with: scale)
             case .aspectFill:
-                let leftPadding = isLandscape ? view.pdfView.safeAreaInsets.left : 5
+                let leftPadding: CGFloat = isLandscape ? 44.0 : 5.0
                 let displayWidth = screenWidth - leftPadding * 2
                 let thumbnailSize = CGSize(width: currentPageSize.width / 4, height: currentPageSize.height / 4)
                 if let pageImage = view.pdfView.currentPage?.thumbnail(of: thumbnailSize, for: view.pdfView.displayBox),
