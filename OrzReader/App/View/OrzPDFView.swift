@@ -20,6 +20,7 @@ struct OrzPDFView: UIViewRepresentable {
     var scale: CGFloat?
     
     var lastContentMode: OrzPDFPageContentMode?
+    
     var isLandscape: Bool?
     
     func makeUIView(context: UIViewRepresentableContext<OrzPDFView>) -> PDFView {
@@ -30,7 +31,6 @@ struct OrzPDFView: UIViewRepresentable {
             pdfView.displayDirection = .vertical
             pdfView.displaysPageBreaks = false
             pdfView.autoScales = false
-            pdfView.delegate = context.coordinator
             
             removeDoubleTapGestures()
         }
@@ -59,21 +59,5 @@ extension OrzPDFView {
                 return true
             }
         })
-    }
-}
-
-// MARK: 阅读进度
-extension OrzPDFView {
-    
-    func saveLastReadPage() {
-        if let currentPageNumber = pdfView.currentPage?.pageRef?.pageNumber {
-            self.pdfInfo.savePageNumber(currentPageNumber)
-        }
-    }
-    
-    func goToLastReadPage() {
-        if let lastPage = pdfView.document?.page(at: pdfInfo.lastPageNumber) {
-            pdfView.go(to: lastPage)
-        }
     }
 }

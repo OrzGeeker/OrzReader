@@ -11,9 +11,9 @@ import Combine
 
 class PDFViewCoordinator: NSObject {
     var view: OrzPDFView
-    
     var readProcessSubscription: AnyCancellable? = nil
-    var contentModeChangeSubscription: Any? = nil
+    var saveReadPageSubscription: Any? = nil
+    var loadReadPageSubscription: Any? = nil
 
     init(_ view: OrzPDFView) {
         self.view = view        
@@ -25,6 +25,14 @@ class PDFViewCoordinator: NSObject {
                 let totalPageNumber = self.view.pdfView.document?.pageCount {
                 self.view.pdfStore.progress =  Float(currentPageNumber) / Float(totalPageNumber)
             }
+        }
+        
+        saveReadPageSubscription = view.pdfStore.savePublisher.sink { (_) in
+            self.saveLastReadPage()
+        }
+        
+        loadReadPageSubscription = view.pdfStore.loadPublisher.sink { (_) in
+            self.goToLastReadPage()
         }
     }
     
@@ -85,28 +93,24 @@ class PDFViewCoordinator: NSObject {
             }
         }
     }
-}
-
-extension PDFViewCoordinator: PDFViewDelegate {
     
-    func pdfViewWillClick(onLink sender: PDFView, with url: URL) {
-        print(url)
-    }
-    
-    func pdfViewPerformFind(_ sender: PDFView) {
-        print("find")
-    }
-    
-    func pdfViewOpenPDF(_ sender: PDFView, forRemoteGoToAction action: PDFActionRemoteGoTo) {
+    // 保存阅读进度
+    func saveLastReadPage() {
         
+        if let pageNumber = view.pdfView.currentDestination?.page?.pageRef?.pageNumber,
+            let point = view.pdfView.currentDestination?.point,
+            let zoom = view.pdfView.currentDestination?.zoom {
+            view.pdfInfo.savePageNumber(pageNumber, location: point, zoom: zoom)
+        }
     }
     
-    func pdfViewPerformGo(toPage sender: PDFView) {
+    func goToLastReadPage() {
         
+        if let lastPage = view.pdfView.document?.page(at: view.pdfInfo.lastPageNumber) {
+            let lastPagePoint = CGPoint(x: view.pdfInfo.lastPagePointX, y: view.pdfInfo.lastPagePointY)
+            let destination = PDFDestination(page: lastPage, at: lastPagePoint)
+            destination.zoom = view.pdfInfo.lastPageZoom
+            view.pdfView.go(to: destination)
+        }
     }
-    
-    func pdfViewParentViewController() -> UIViewController {
-        return UIViewController()
-    }
-    
 }

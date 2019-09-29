@@ -41,6 +41,9 @@ enum OrzPDFPageContentMode {
     dynamic var sha1: String? = nil
     dynamic var pageMode: OrzPDFPageContentMode = .aspectFit
     dynamic var lastPageNumber: Int = 0
+    dynamic var lastPagePointX: CGFloat = 0
+    dynamic var lastPagePointY: CGFloat = 0
+    dynamic var lastPageZoom: CGFloat = 0
     
     override class func primaryKey() -> String? { return "id" }
     
@@ -128,10 +131,13 @@ extension OrzPDFInfo {
         }
     }
     
-    func savePageNumber(_ pageNumber: Int) {
+    func savePageNumber(_ pageNumber: Int, location point: CGPoint, zoom: CGFloat) {
         let realm = try! Realm()
         try! realm.write {
             self.lastPageNumber = pageNumber
+            self.lastPagePointX = point.x
+            self.lastPagePointY = point.y
+            self.lastPageZoom = zoom
         }
     }
 }

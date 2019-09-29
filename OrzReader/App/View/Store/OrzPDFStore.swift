@@ -8,11 +8,15 @@
 
 import SwiftUI
 import RealmSwift
+import Combine
 
 final class OrzPDFStore: ObservableObject {
     @Published var pdfs = OrzPDFInfo.all()
     @Published var progress: Float = 0
     @Published var contentMode: OrzPDFPageContentMode = .aspectFit
+    
+    let savePublisher = PassthroughSubject<Any, Never>()
+    let loadPublisher = PassthroughSubject<Any, Never>()
     
     var notificationToken: NotificationToken? = nil
 
