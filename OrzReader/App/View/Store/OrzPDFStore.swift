@@ -11,6 +11,8 @@ import RealmSwift
 
 final class OrzPDFStore: ObservableObject {
     @Published var pdfs = OrzPDFInfo.all()
+    @Published var progress: Float = 0
+    @Published var contentMode: OrzPDFPageContentMode = .aspectFit
     
     var notificationToken: NotificationToken? = nil
 

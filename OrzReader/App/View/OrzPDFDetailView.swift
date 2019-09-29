@@ -10,19 +10,22 @@ import SwiftUI
 import Combine
 
 struct OrzPDFDetailView: View {
+
+    @EnvironmentObject var pdfStore: OrzPDFStore
     
-    @State var pdfInfo: OrzPDFInfo
-    @State var contentMode: OrzPDFPageContentMode = .aspectFit
-    @State var progress: Float = 0
+    var pdfInfo: OrzPDFInfo
     
     var body: some View {
         VStack {
-            OrzPDFProgressView(progress: progress)
-            OrzPDFView(pdfInfo: pdfInfo, contentMode: contentMode, progress: $progress)
+            OrzPDFProgressView(progress: pdfStore.progress)
+            OrzPDFView(pdfInfo: pdfInfo)
                 .navigationBarTitle("\(pdfInfo.title ?? "图书详情")", displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
-                    self.contentMode.toggle()
-                }, label: { Text(self.contentMode.title) }))
+                    self.pdfStore.contentMode.toggle()
+                }, label: { Text(self.pdfStore.contentMode.title) }))
+                .onAppear {
+                    self.pdfStore.contentMode = .aspectFit
+            }
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
     }
