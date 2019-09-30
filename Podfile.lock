@@ -1,19 +1,19 @@
 PODS:
   - CryptoSwift (1.0.0)
   - OpenCV (4.1.0)
-  - Realm (3.18.0):
-    - Realm/Headers (= 3.18.0)
-  - Realm/Headers (3.18.0)
-  - RealmSwift (3.18.0):
-    - Realm (= 3.18.0)
+  - Realm (3.19.0):
+    - Realm/Headers (= 3.19.0)
+  - Realm/Headers (3.19.0)
+  - RealmSwift (3.19.0):
+    - Realm (= 3.19.0)
 
 DEPENDENCIES:
   - CryptoSwift
   - OpenCV
-  - RealmSwift (= 3.18.0)
+  - RealmSwift
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - CryptoSwift
     - OpenCV
     - Realm
@@ -22,9 +22,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   OpenCV: 52cd4d72ff29e2be83421477aec5447320b7fb19
-  Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
-  RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
+  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
+  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
 
-PODFILE CHECKSUM: 4b7aba65490a0a2524d6aa764fcbbb393fbacd6a
+PODFILE CHECKSUM: f2822ddaa68d5339b8e8d7987be0ec390ac7b2ee
 
-COCOAPODS: 1.8.0.beta.1
+COCOAPODS: 1.8.0

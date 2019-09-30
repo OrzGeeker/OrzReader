@@ -14,7 +14,8 @@ class PDFViewCoordinator: NSObject {
     var readProcessSubscription: AnyCancellable? = nil
     var saveReadPageSubscription: Any? = nil
     var loadReadPageSubscription: Any? = nil
-
+    var gotoPage: Any? = nil
+    
     init(_ view: OrzPDFView) {
         self.view = view        
     }
@@ -32,6 +33,10 @@ class PDFViewCoordinator: NSObject {
         }
         
         loadReadPageSubscription = view.pdfStore.loadPublisher.sink { (_) in
+            self.goToLastReadPage()
+        }
+        
+        gotoPage = view.pdfStore.goToPage.sink { (_) in
             self.goToLastReadPage()
         }
     }
@@ -107,10 +112,7 @@ class PDFViewCoordinator: NSObject {
     func goToLastReadPage() {
         
         if let lastPage = view.pdfView.document?.page(at: view.pdfInfo.lastPageNumber) {
-            let lastPagePoint = CGPoint(x: view.pdfInfo.lastPagePointX, y: view.pdfInfo.lastPagePointY)
-            let destination = PDFDestination(page: lastPage, at: lastPagePoint)
-            destination.zoom = view.pdfInfo.lastPageZoom
-            view.pdfView.go(to: destination)
+            view.pdfView.go(to: lastPage)
         }
     }
 }

@@ -7,7 +7,7 @@ target 'OrzReader' do
 
   # Pods for OrzReader
   pod 'OpenCV'
-  pod 'RealmSwift', '3.18.0'
+  pod 'RealmSwift'
   pod 'CryptoSwift'
 
 end

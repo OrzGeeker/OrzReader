@@ -23,9 +23,11 @@ struct OrzPDFDetailView: View {
                 .navigationBarTitle("上次阅读第\(pdfInfo.lastPageNumber)页", displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     self.pdfStore.contentMode.toggle()
-                }, label: { Text(self.pdfStore.contentMode.title) }))
+                }, label: {
+                    Text(self.pdfStore.contentMode.title)
+                        .bold().frame(width: 50)
+                }))
                 .onAppear {
-                    self.pdfStore.contentMode = .aspectFit
                     self.pdfStore.loadPublisher.send(true)
             }.onDisappear {
                 self.pdfStore.savePublisher.send(true)

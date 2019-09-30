@@ -18,7 +18,7 @@ struct OrzPDFListView: View {
             NavigationView {
                 List(pdfStore.pdfs) { pdfInfo in
                     NavigationLink(destination: OrzPDFDetailView(pdfInfo: pdfInfo)) {
-                        Text("\(pdfInfo.title!)")
+                        OrzPDFListRow(pdfInfo: pdfInfo)
                     }
                 }
                 .navigationBarTitle("图书列表")

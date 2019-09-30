@@ -21,6 +21,7 @@
 		E2ABDA2823214C8000DD3D28 /* OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA1E23214C8000DD3D28 /* OpenCV.mm */; };
 		E2ABDA2A23214C8000DD3D28 /* OrzPDFInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA2123214C8000DD3D28 /* OrzPDFInfo.swift */; };
 		E2ABDA302321503600DD3D28 /* OrzPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA2F2321503600DD3D28 /* OrzPDFView.swift */; };
+		E2C68F312342362600734385 /* OrzPDFListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68F302342362600734385 /* OrzPDFListRow.swift */; };
 		F30A3DFE233FA2B80067B167 /* OrzPDFProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A3DFD233FA2B80067B167 /* OrzPDFProgressView.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		E2ABDA2123214C8000DD3D28 /* OrzPDFInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrzPDFInfo.swift; sourceTree = "<group>"; };
 		E2ABDA2223214C8000DD3D28 /* OrzReaderBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrzReaderBridge.h; sourceTree = "<group>"; };
 		E2ABDA2F2321503600DD3D28 /* OrzPDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFView.swift; sourceTree = "<group>"; };
+		E2C68F302342362600734385 /* OrzPDFListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFListRow.swift; sourceTree = "<group>"; };
 		F30A3DFD233FA2B80067B167 /* OrzPDFProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +166,7 @@
 			children = (
 				E252CA8F2324E73A00EF85AB /* Store */,
 				E2ABDA0523214C4D00DD3D28 /* OrzPDFListView.swift */,
+				E2C68F302342362600734385 /* OrzPDFListRow.swift */,
 				E23260292322267C003816EC /* OrzPDFDetailView.swift */,
 				F30A3DFD233FA2B80067B167 /* OrzPDFProgressView.swift */,
 				E2ABDA2F2321503600DD3D28 /* OrzPDFView.swift */,
@@ -308,6 +311,7 @@
 				E289F77B233DED3A00AD030D /* OrzPDFViewCoordinator.swift in Sources */,
 				E2ABDA0623214C4D00DD3D28 /* OrzPDFListView.swift in Sources */,
 				E252CA912324E74B00EF85AB /* OrzPDFStore.swift in Sources */,
+				E2C68F312342362600734385 /* OrzPDFListRow.swift in Sources */,
 				E232602A2322267C003816EC /* OrzPDFDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

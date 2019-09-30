@@ -17,6 +17,7 @@ final class OrzPDFStore: ObservableObject {
     
     let savePublisher = PassthroughSubject<Any, Never>()
     let loadPublisher = PassthroughSubject<Any, Never>()
+    let goToPage = PassthroughSubject<Any, Never>()
     
     var notificationToken: NotificationToken? = nil
 
