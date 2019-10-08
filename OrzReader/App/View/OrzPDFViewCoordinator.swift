@@ -13,11 +13,11 @@ class PDFViewCoordinator: NSObject {
     var view: OrzPDFView
     var readProcessSubscription: AnyCancellable? = nil
     var saveReadPageSubscription: Any? = nil
-    var loadReadPageSubscription: Any? = nil
-    var gotoPage: Any? = nil
+    
+    var isGotoLastReadPage: Bool = true
     
     init(_ view: OrzPDFView) {
-        self.view = view        
+        self.view = view
     }
     
     func configNotification() {
@@ -27,17 +27,8 @@ class PDFViewCoordinator: NSObject {
                 self.view.pdfStore.progress =  Float(currentPageNumber) / Float(totalPageNumber)
             }
         }
-        
         saveReadPageSubscription = view.pdfStore.savePublisher.sink { (_) in
             self.saveLastReadPage()
-        }
-        
-        loadReadPageSubscription = view.pdfStore.loadPublisher.sink { (_) in
-            self.goToLastReadPage()
-        }
-        
-        gotoPage = view.pdfStore.goToPage.sink { (_) in
-            self.goToLastReadPage()
         }
     }
     
@@ -111,8 +102,23 @@ class PDFViewCoordinator: NSObject {
     
     func goToLastReadPage() {
         
-        if let lastPage = view.pdfView.document?.page(at: view.pdfInfo.lastPageNumber) {
-            view.pdfView.go(to: lastPage)
+        guard isGotoLastReadPage else { return }
+        
+        let visiblePages = view.pdfView.visiblePages.map({ (page) -> Int in
+            return (page.pageRef?.pageNumber ?? 1)
+        })
+        
+        let lastPageNumber = view.pdfInfo.lastPageNumber
+        
+        guard visiblePages.contains(lastPageNumber) else {
+            
+            if let lastPage = view.pdfView.document?.page(at: lastPageNumber) {
+                view.pdfView.go(to: lastPage)
+            }
+            
+            return
         }
+        
+        isGotoLastReadPage = false
     }
 }

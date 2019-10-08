@@ -16,8 +16,6 @@ final class OrzPDFStore: ObservableObject {
     @Published var contentMode: OrzPDFPageContentMode = .aspectFit
     
     let savePublisher = PassthroughSubject<Any, Never>()
-    let loadPublisher = PassthroughSubject<Any, Never>()
-    let goToPage = PassthroughSubject<Any, Never>()
     
     var notificationToken: NotificationToken? = nil
 

@@ -23,6 +23,8 @@ struct OrzPDFView: UIViewRepresentable {
     
     var isLandscape: Bool?
     
+    var loadLastReadPage: Bool
+    
     func makeUIView(context: UIViewRepresentableContext<OrzPDFView>) -> PDFView {
         
         if let pdfUrl = pdfInfo.pdfUrl, let document = PDFDocument(url: pdfUrl) {
@@ -39,6 +41,7 @@ struct OrzPDFView: UIViewRepresentable {
     
     func updateUIView(_ pdfView: PDFView, context: UIViewRepresentableContext<OrzPDFView>) {
         context.coordinator.updateContentMode()
+        context.coordinator.goToLastReadPage()
     }
     
     func makeCoordinator() -> PDFViewCoordinator {
