@@ -131,13 +131,14 @@ extension OrzPDFInfo {
         }
     }
     
-    func savePageNumber(_ pageNumber: Int, location point: CGPoint, zoom: CGFloat) {
+    func savePageNumber(_ pageNumber: Int, location point: CGPoint, zoom: CGFloat, pageMode: OrzPDFPageContentMode) {
         let realm = try! Realm()
         try! realm.write {
             self.lastPageNumber = pageNumber
             self.lastPagePointX = point.x
             self.lastPagePointY = point.y
             self.lastPageZoom = zoom
+            self.pageMode = pageMode
         }
     }
 }

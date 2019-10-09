@@ -95,8 +95,10 @@ class PDFViewCoordinator: NSObject {
         
         if let pageNumber = view.pdfView.currentDestination?.page?.pageRef?.pageNumber,
             let point = view.pdfView.currentDestination?.point,
-            let zoom = view.pdfView.currentDestination?.zoom {
-            view.pdfInfo.savePageNumber(pageNumber, location: point, zoom: zoom)
+            let zoom = view.pdfView.currentDestination?.zoom,
+            let pageMode = view.lastContentMode {
+            
+            view.pdfInfo.savePageNumber(pageNumber, location: point, zoom: zoom, pageMode: pageMode)
         }
     }
     
