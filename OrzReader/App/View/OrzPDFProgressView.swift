@@ -14,6 +14,7 @@ struct OrzPDFProgressView: UIViewRepresentable {
     
     func makeUIView(context: UIViewRepresentableContext<OrzPDFProgressView>) -> UIProgressView {
         let progressView = UIProgressView(frame: .zero)
+        progressView.tintColor = .systemGreen
         return progressView
     }
     

@@ -113,8 +113,8 @@ class PDFViewCoordinator: NSObject {
         let lastPageNumber = view.pdfInfo.lastPageNumber
         
         guard visiblePages.first == lastPageNumber else {
-            
-            if let lastPage = view.pdfView.document?.page(at: lastPageNumber - 1) {
+            let pageNumber = max(lastPageNumber - 1, 0)
+            if let lastPage = view.pdfView.document?.page(at: pageNumber) {
                 let offsetY = lastPage.bounds(for: view.pdfView.displayBox).size.height
                 let destination = PDFDestination(page: lastPage, at: CGPoint(x: 0, y: offsetY))
                 view.pdfView.go(to: destination)
