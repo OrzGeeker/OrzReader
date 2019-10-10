@@ -21,7 +21,7 @@ struct OrzPDFDetailView: View {
         VStack {
             OrzPDFProgressView(progress: pdfStore.progress)
             OrzPDFView(pdfInfo: pdfInfo, loadLastReadPage: loadLastReadPage)
-                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarTitle("上次阅读第\(pdfInfo.lastPageNumber)页", displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     self.pdfStore.contentMode.toggle()
                 }, label: {
