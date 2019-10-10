@@ -19,10 +19,8 @@ struct OrzPDFDetailView: View {
     
     var body: some View {
         VStack {
-            OrzPDFProgressView(progress: pdfStore.progress)
             OrzPDFView(pdfInfo: pdfInfo, loadLastReadPage: loadLastReadPage)
-//                .navigationBarTitle("\(pdfInfo.title ?? "图书详情")", displayMode: .inline)
-                .navigationBarTitle("上次阅读第\(pdfInfo.lastPageNumber)页", displayMode: .inline)
+                .navigationBarTitle("上次阅读第\(pdfInfo.lastPageNumber)页, \(pdfStore.progress * 100)", displayMode: .inline)
                 .navigationBarItems(trailing: Button(action: {
                     self.pdfStore.contentMode.toggle()
                 }, label: {
@@ -34,6 +32,7 @@ struct OrzPDFDetailView: View {
                 .onDisappear {
                     self.pdfStore.savePublisher.send(true)
             }
+            OrzPDFProgressView(progress: pdfStore.progress)
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
     }
