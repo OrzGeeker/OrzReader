@@ -22,7 +22,7 @@ struct OrzPDFListView: View {
                             OrzPDFListRow(pdfInfo: pdfInfo)
                         }
                     }
-                    .navigationBarTitle("图书列表")
+                    .navigationBarTitle("图书列表", displayMode: .large)
                 }
             } else {
                 Text("暂无PDF导入")
