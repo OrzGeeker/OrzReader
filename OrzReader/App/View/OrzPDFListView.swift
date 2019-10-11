@@ -23,6 +23,11 @@ struct OrzPDFListView: View {
                         }
                     }
                     .navigationBarTitle("图书列表", displayMode: .large)
+                    .navigationBarItems(trailing: Button(action: {
+                        
+                    }, label: {
+                        Text("反馈").font(.system(.headline))
+                    }))
                 }
             } else {
                 Text("暂无PDF导入")

@@ -32,6 +32,7 @@ struct OrzPDFDetailView: View {
                 })
                 .onDisappear {
                     self.pdfStore.savePublisher.send(true)
+                    self.pdfStore.contentMode = .aspectFit
             }.padding(.top, -8)
             
         }
