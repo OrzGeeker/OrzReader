@@ -92,8 +92,9 @@ class PDFViewCoordinator: NSObject {
     
     // 保存阅读进度
     func saveLastReadPage() {
-        
-        if  let page = view.pdfView.visiblePages.first,
+        // let page = view.pdfView.visiblePages.first,
+        if
+            let page = view.pdfView.currentPage,
             let pageNumber = page.pageRef?.pageNumber,
             let point = view.pdfView.currentDestination?.point,
             let zoom = view.pdfView.currentDestination?.zoom,

@@ -14,14 +14,20 @@ struct OrzPDFListView: View {
     
     var body: some View {
         
-        VStack { 
-            NavigationView {
-                List(pdfStore.pdfs) { pdfInfo in
-                    NavigationLink(destination: OrzPDFDetailView(pdfInfo: pdfInfo)) {
-                        OrzPDFListRow(pdfInfo: pdfInfo)
+        VStack {
+            if pdfStore.pdfs.count > 0 {
+                NavigationView {
+                    List(pdfStore.pdfs) { pdfInfo in
+                        NavigationLink(destination: OrzPDFDetailView(pdfInfo: pdfInfo)) {
+                            OrzPDFListRow(pdfInfo: pdfInfo)
+                        }
                     }
+                    .navigationBarTitle("图书列表")
                 }
-                .navigationBarTitle("图书列表")
+            } else {
+                Text("暂无PDF导入")
+                    .fontWeight(.bold)
+                    .font(.system(.largeTitle))
             }
         }
     }

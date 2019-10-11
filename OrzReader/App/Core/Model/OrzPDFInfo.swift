@@ -8,6 +8,7 @@
 
 import RealmSwift
 import CryptoSwift
+import PDFKit
 
 enum OrzPDFPageContentMode {
     
@@ -40,10 +41,12 @@ enum OrzPDFPageContentMode {
     dynamic var urlStr: String? = nil
     dynamic var sha1: String? = nil
     dynamic var pageMode: OrzPDFPageContentMode = .aspectFit
-    dynamic var lastPageNumber: Int = 0
+    dynamic var lastPageNumber: Int = 1
     dynamic var lastPagePointX: CGFloat = 0
     dynamic var lastPagePointY: CGFloat = 0
     dynamic var lastPageZoom: CGFloat = 0
+    dynamic var thumbnail: Data? = nil
+    dynamic var pageCount: Int? = 0
     
     override class func primaryKey() -> String? { return "id" }
     
@@ -55,6 +58,18 @@ enum OrzPDFPageContentMode {
         return nil
     }
     
+    lazy var uiImage: UIImage? = {
+        
+        guard let thumbnailData = thumbnail, let uiImage = UIImage(data: thumbnailData) else {
+            return nil
+        }
+        return uiImage
+    }()
+    
+    override class func ignoredProperties() -> [String] {
+        return ["uiImage"]
+    }
+    
     convenience init?(url: URL) {
         
         guard url.scheme == "file", url.pathExtension == "pdf" else {
@@ -62,10 +77,18 @@ enum OrzPDFPageContentMode {
         }
         
         self.init()
-        
-        self.title = url.deletingPathExtension().lastPathComponent
-        self.sha1 = (try? Data(contentsOf: url))?.sha1().toHexString()
-        self.urlStr = url.absoluteString
+    
+        if let data = try? Data(contentsOf: url) {
+            self.title = url.deletingPathExtension().lastPathComponent
+            self.sha1 = data.sha1().toHexString()
+            self.urlStr = url.absoluteString
+            
+            if let document = PDFDocument(data: data), let page = document.page(at: 0) {
+                self.pageCount = document.pageCount
+                let size = page.bounds(for: .mediaBox).size
+                self.thumbnail = page.thumbnail(of: size, for: .mediaBox).pngData()
+            }
+        }
     }
     
     func saveToDocuments() {
