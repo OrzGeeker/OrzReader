@@ -42,9 +42,9 @@ enum OrzPDFPageContentMode {
     dynamic var sha1: String? = nil
     dynamic var pageMode: OrzPDFPageContentMode = .aspectFit
     dynamic var lastPageNumber: Int = 1
-    dynamic var lastPagePointX: CGFloat = 0
-    dynamic var lastPagePointY: CGFloat = 0
-    dynamic var lastPageZoom: CGFloat = 0
+    dynamic var lastPagePointX: Float = 0
+    dynamic var lastPagePointY: Float = 0
+    dynamic var lastPageZoom: Float = 0
     dynamic var thumbnail: Data? = nil
     dynamic var pageCount: Int? = 0
     
@@ -158,9 +158,9 @@ extension OrzPDFInfo {
         let realm = try! Realm()
         try! realm.write {
             self.lastPageNumber = pageNumber
-            self.lastPagePointX = point.x
-            self.lastPagePointY = point.y
-            self.lastPageZoom = zoom
+            self.lastPagePointX = Float(point.x)
+            self.lastPagePointY = Float(point.y)
+            self.lastPageZoom = Float(zoom)
             self.pageMode = pageMode
         }
     }

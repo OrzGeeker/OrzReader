@@ -33,6 +33,14 @@ struct OrzPDFListView: View {
                 Text("暂无PDF导入")
                     .fontWeight(.bold)
                     .font(.system(.largeTitle))
+                Text("通过AriDrop传送到本App打开PDF文件")
+                    .font(.system(.subheadline))
+                    .padding([.top, .leading, .trailing], 20)
+                    .foregroundColor(.gray)
+                Text("通过其它应用分享到本App打开PDF文件")
+                    .font(.system(.subheadline))
+                    .padding(.top, 10)
+                    .foregroundColor(.gray)
             }
         }
     }

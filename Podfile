@@ -9,5 +9,6 @@ target 'OrzReader' do
   pod 'OpenCV'
   pod 'RealmSwift'
   pod 'CryptoSwift'
+  pod 'PinpointKit'
 
 end
