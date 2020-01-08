@@ -8,9 +8,11 @@
 	<array>
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
-			<array/>
+			<string>Default</string>
 			<key>CFBundleTypeName</key>
 			<string>OrzReader</string>
+			<key>LSHandlerRank</key>
+			<string>Default</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>com.adobe.pdf</string>
@@ -30,7 +32,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
