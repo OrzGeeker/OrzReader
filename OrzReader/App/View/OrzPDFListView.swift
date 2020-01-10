@@ -11,6 +11,7 @@ import SwiftUI
 struct OrzPDFListView: View {
     
     @EnvironmentObject var pdfStore: OrzPDFStore
+    @State var showFeedBack: Bool = false
     
     var body: some View {
         
@@ -24,10 +25,13 @@ struct OrzPDFListView: View {
                     }
                     .navigationBarTitle("图书列表", displayMode: .large)
                     .navigationBarItems(trailing: Button(action: {
-                        
+                        self.showFeedBack.toggle()
                     }, label: {
                         Text("反馈").font(.system(.headline))
                     }))
+                    .sheet(isPresented: $showFeedBack) {
+                        OrzFeedBackView()
+                    }
                 }
             } else {
                 Text("暂无PDF导入")
