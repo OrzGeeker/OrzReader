@@ -10,6 +10,8 @@
 		595BB337079018C83BFB6BB1 /* Pods_OrzReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF0A83EACA9045189C5D477 /* Pods_OrzReader.framework */; };
 		E232602A2322267C003816EC /* OrzPDFDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23260292322267C003816EC /* OrzPDFDetailView.swift */; };
 		E252CA912324E74B00EF85AB /* OrzPDFStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252CA902324E74B00EF85AB /* OrzPDFStore.swift */; };
+		E288D52923C858AA0029A474 /* OrzReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E288D52823C858AA0029A474 /* OrzReaderUITests.swift */; };
+		E288D53123C858F10029A474 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E288D53023C858F10029A474 /* SnapshotHelper.swift */; };
 		E289F77B233DED3A00AD030D /* OrzPDFViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F77A233DED3A00AD030D /* OrzPDFViewCoordinator.swift */; };
 		E2ABDA0223214C4D00DD3D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA0123214C4D00DD3D28 /* AppDelegate.swift */; };
 		E2ABDA0423214C4D00DD3D28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA0323214C4D00DD3D28 /* SceneDelegate.swift */; };
@@ -26,12 +28,26 @@
 		F30A3DFE233FA2B80067B167 /* OrzPDFProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A3DFD233FA2B80067B167 /* OrzPDFProgressView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E288D52B23C858AA0029A474 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2ABD9F623214C4D00DD3D28 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E2ABD9FD23214C4D00DD3D28;
+			remoteInfo = OrzReader;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3CF0A83EACA9045189C5D477 /* Pods_OrzReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrzReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46A2103D3667B5FA37B16EA9 /* Pods-OrzReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrzReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader.debug.xcconfig"; sourceTree = "<group>"; };
 		8E0C44C4F2B3BE8D319BAFD2 /* Pods-OrzReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrzReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader.release.xcconfig"; sourceTree = "<group>"; };
 		E23260292322267C003816EC /* OrzPDFDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFDetailView.swift; sourceTree = "<group>"; };
 		E252CA902324E74B00EF85AB /* OrzPDFStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFStore.swift; sourceTree = "<group>"; };
+		E288D52623C858AA0029A474 /* OrzReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrzReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E288D52823C858AA0029A474 /* OrzReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzReaderUITests.swift; sourceTree = "<group>"; };
+		E288D52A23C858AA0029A474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E288D53023C858F10029A474 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		E289F77A233DED3A00AD030D /* OrzPDFViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFViewCoordinator.swift; sourceTree = "<group>"; };
 		E2ABD9FE23214C4D00DD3D28 /* OrzReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrzReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2ABDA0123214C4D00DD3D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +69,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E288D52323C858AA0029A474 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2ABD9FB23214C4D00DD3D28 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -89,11 +112,22 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		E288D52723C858AA0029A474 /* OrzReaderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E288D53023C858F10029A474 /* SnapshotHelper.swift */,
+				E288D52823C858AA0029A474 /* OrzReaderUITests.swift */,
+				E288D52A23C858AA0029A474 /* Info.plist */,
+			);
+			path = OrzReaderUITests;
+			sourceTree = "<group>";
+		};
 		E2ABD9F523214C4D00DD3D28 = {
 			isa = PBXGroup;
 			children = (
 				E2ABDA1523214C7800DD3D28 /* README.md */,
 				E2ABDA0023214C4D00DD3D28 /* OrzReader */,
+				E288D52723C858AA0029A474 /* OrzReaderUITests */,
 				E2ABD9FF23214C4D00DD3D28 /* Products */,
 				A072B553EB255D73B9189DF3 /* Pods */,
 				BEEBED8AEF16DE83A27DFF91 /* Frameworks */,
@@ -104,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				E2ABD9FE23214C4D00DD3D28 /* OrzReader.app */,
+				E288D52623C858AA0029A474 /* OrzReaderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,6 +227,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		E288D52523C858AA0029A474 /* OrzReaderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E288D52F23C858AA0029A474 /* Build configuration list for PBXNativeTarget "OrzReaderUITests" */;
+			buildPhases = (
+				E288D52223C858AA0029A474 /* Sources */,
+				E288D52323C858AA0029A474 /* Frameworks */,
+				E288D52423C858AA0029A474 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E288D52C23C858AA0029A474 /* PBXTargetDependency */,
+			);
+			name = OrzReaderUITests;
+			productName = OrzReaderUITests;
+			productReference = E288D52623C858AA0029A474 /* OrzReaderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		E2ABD9FD23214C4D00DD3D28 /* OrzReader */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2ABDA1223214C5200DD3D28 /* Build configuration list for PBXNativeTarget "OrzReader" */;
@@ -217,10 +270,14 @@
 		E2ABD9F623214C4D00DD3D28 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = wangzhizhou;
 				TargetAttributes = {
+					E288D52523C858AA0029A474 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = E2ABD9FD23214C4D00DD3D28;
+					};
 					E2ABD9FD23214C4D00DD3D28 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -240,11 +297,19 @@
 			projectRoot = "";
 			targets = (
 				E2ABD9FD23214C4D00DD3D28 /* OrzReader */,
+				E288D52523C858AA0029A474 /* OrzReaderUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E288D52423C858AA0029A474 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2ABD9FC23214C4D00DD3D28 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,6 +366,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E288D52223C858AA0029A474 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E288D52923C858AA0029A474 /* OrzReaderUITests.swift in Sources */,
+				E288D53123C858F10029A474 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E2ABD9FA23214C4D00DD3D28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +396,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		E288D52C23C858AA0029A474 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E2ABD9FD23214C4D00DD3D28 /* OrzReader */;
+			targetProxy = E288D52B23C858AA0029A474 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		E2ABDA0C23214C5200DD3D28 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -334,6 +416,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		E288D52D23C858AA0029A474 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2N62934Y28;
+				INFOPLIST_FILE = OrzReaderUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader.OrzReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OrzReader;
+			};
+			name = Debug;
+		};
+		E288D52E23C858AA0029A474 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2N62934Y28;
+				INFOPLIST_FILE = OrzReaderUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader.OrzReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = OrzReader;
+			};
+			name = Release;
+		};
 		E2ABDA1023214C5200DD3D28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -469,6 +591,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/OrzReader/App/Core/OrzReaderBridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -493,12 +616,22 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/OrzReader/App/Core/OrzReaderBridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		E288D52F23C858AA0029A474 /* Build configuration list for PBXNativeTarget "OrzReaderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E288D52D23C858AA0029A474 /* Debug */,
+				E288D52E23C858AA0029A474 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E2ABD9F923214C4D00DD3D28 /* Build configuration list for PBXProject "OrzReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

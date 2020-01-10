@@ -7,3 +7,6 @@
 # Wiki
 
 [Home](https://github.com/OrzGeeker/OrzReader/wiki)
+
+## 使用 `Fastlane` 进行自动f截屏操作
+
