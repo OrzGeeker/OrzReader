@@ -40,4 +40,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         pdfStore.savePublisher.send(true)
     }
 }
-

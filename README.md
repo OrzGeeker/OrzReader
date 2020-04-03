@@ -10,3 +10,10 @@
 
 ## 使用 `Fastlane` 进行自动截屏操作
 
+
+
+## Continue Integration
+
+```bash
+$ xcodebuild -project 'OrzReader.xcodeproj' -scheme 'OrzReader' -destination 'platform=iOS Simulator,name=iPhone 8' test
+```
