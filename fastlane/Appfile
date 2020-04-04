@@ -5,5 +5,5 @@
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile
 
-app_identifier "com.joker.OrzReader"
-apple_id "824219521@qq.com"
+app_identifier("com.joker.OrzReader")
+apple_id("824219521@qq.com")

@@ -122,4 +122,19 @@ $ fastlane sigh
 
 使`用Appfile`可以统一存储应用元数据, 不需要每次传入相同的参数
 
-fastlane sign 有问题更新到ruby最新版本
+fastlane sign 有问题更新到ruby最新版本, 建议使用ruby2.6
+
+团队开发工程配置, 创建一个私人仓库，用来存放团队开发的证书及相关许可文件
+
+```bash
+$ fastlane match init
+$ fastlane match nuke development
+$ fastlane match nuke distribution
+$ fastlane match nuke enterprise
+$ fastlane match development
+$ fastlane match adhoc
+$ fastlane match appstore
+```
+
+`fastlane list`列出可用的lane
+
