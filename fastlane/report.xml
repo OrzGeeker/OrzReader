@@ -5,22 +5,22 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.005186">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.004798">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Switch to ios sync_devices lane" time="0.001415">
+      <testcase classname="fastlane.lanes" name="1: Switch to ios sync_devices lane" time="0.00095">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: register_devices" time="21.293872">
+      <testcase classname="fastlane.lanes" name="2: register_devices" time="14.259589">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: match" time="479.091052">
+      <testcase classname="fastlane.lanes" name="3: match" time="15.259374">
         
       </testcase>
     
