@@ -16,11 +16,11 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios sync_devices
+### ios sync_all_development
 ```
-fastlane ios sync_devices
+fastlane ios sync_all_development
 ```
-Sync devices info
+Sync All Devices
 
 ----
 

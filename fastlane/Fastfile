@@ -33,16 +33,17 @@ platform :ios do
     sigh(development: true)
   end
 
-  desc "Sync All Devices"
-  private_lane :sync_all_development do
-    sync_devices
-    match(type: "development")
-  end
-
   desc "Sync devices info"
-  lane :sync_devices do
+  private_lane :sync_devices do
     register_devices(
         devices_file: "fastlane/Devicefile"
     )
   end
+
+  desc "Sync All Devices"
+  lane :sync_all_development do
+    sync_devices
+    match(type: "development")
+  end
+
 end
