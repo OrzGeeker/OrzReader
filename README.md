@@ -34,6 +34,8 @@ $ gem install bundler
 $ git --version
 ```
 
+- `bundle config set path 'vendor/bundle'`
+
 安装`Fastlane`
 
 ```bash

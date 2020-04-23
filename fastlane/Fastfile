@@ -51,6 +51,9 @@ platform :ios do
     cert(development: false)
     sigh(development: false)
     match(type: "adhoc")
+    cocoapods(
+      try_repo_update_on_error: true
+    )
     gym(
       scheme: "OrzReader",
       output_directory: "build_Adhoc",
