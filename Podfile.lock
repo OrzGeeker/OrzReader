@@ -17,7 +17,7 @@ DEPENDENCIES:
   - RealmSwift
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - CryptoSwift
     - OpenCV
     - PinpointKit
@@ -31,6 +31,6 @@ SPEC CHECKSUMS:
   Realm: e125f464884cda953ebefe70c671b75b03b81b9b
   RealmSwift: 33656a42bd300959a081fc13347376bc478071af
 
-PODFILE CHECKSUM: d3261d3687deede35f9b4bf40f7297096434b1d1
+PODFILE CHECKSUM: bad616fbbeb5d791bbab0e78f35427ddb9ff4a97
 
 COCOAPODS: 1.9.1
