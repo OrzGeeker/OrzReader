@@ -10,6 +10,6 @@ clean true
 
 scheme("OrzReader")
 
-sdk("iPhoneOS13.4")
+#sdk("iphoneos13.0")
 
 output_directory("./")

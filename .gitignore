@@ -3,3 +3,5 @@ Pods/
 xcuserdata/
 xcshareddata/
 vendor/
+*.cer
+*.mobileprovision

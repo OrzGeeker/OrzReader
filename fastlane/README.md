@@ -21,6 +21,11 @@ or alternatively using `brew cask install fastlane`
 fastlane ios sync_all_development
 ```
 Sync All Devices
+### ios package
+```
+fastlane ios package
+```
+Package
 
 ----
 

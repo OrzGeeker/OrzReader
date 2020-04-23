@@ -33,17 +33,29 @@ platform :ios do
     sigh(development: true)
   end
 
+  desc "Sync All Devices"
+  lane :sync_all_development do
+    sync_devices
+    match(type: "development")
+  end
+
   desc "Sync devices info"
   private_lane :sync_devices do
     register_devices(
         devices_file: "fastlane/Devicefile"
     )
   end
-
-  desc "Sync All Devices"
-  lane :sync_all_development do
-    sync_devices
-    match(type: "development")
+  
+  desc "Package"
+  lane :package do
+    cert(development: false)
+    sigh(development: false)
+    match(type: "adhoc")
+    gym(
+      scheme: "OrzReader",
+      output_directory: "build_Adhoc",
+      export_method: "ad-hoc"
+    )
   end
 
 end
