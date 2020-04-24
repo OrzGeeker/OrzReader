@@ -138,3 +138,5 @@ $ fastlane match appstore
 
 `fastlane list`列出可用的lane
 
+
+- [配合蒲公英上传发布](http://www.pgyer.com/doc/view/fastlane)

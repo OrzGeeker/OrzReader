@@ -36,6 +36,11 @@ adhoc package
 fastlane ios release
 ```
 app store package
+### ios beta
+```
+fastlane ios beta
+```
+testflight
 
 ----
 

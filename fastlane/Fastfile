@@ -63,6 +63,7 @@ platform :ios do
       try_repo_update_on_error: true
     )
     sigh
+    increment_build_number
     gym(
       scheme: "OrzReader",
       export_method: "app-store",
@@ -70,4 +71,11 @@ platform :ios do
     )
   end
 
+  desc "testflight"
+  lane :beta do
+    release
+    pilot(
+      ipa: "./build_AppStore/OrzReader.ipa"
+    )
+  end
 end
