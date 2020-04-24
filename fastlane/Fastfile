@@ -31,6 +31,19 @@ platform :ios do
     match(type: "appstore")
   end
 
+  desc "development package"
+  lane :dev do
+    cocoapods(
+      try_repo_update_on_error: true
+    )
+    sigh(development: true)
+    gym(
+      scheme: "OrzReader",
+      export_method: "development",
+      output_directory: "./build_Development"
+    )
+  end
+
   desc "adhoc package"
   lane :adhoc do
     cocoapods(
@@ -41,6 +54,19 @@ platform :ios do
       scheme: "OrzReader",
       export_method: "ad-hoc",
       output_directory: "./build_Adhoc"
+    )
+  end
+
+  desc "app store package"
+  lane :release do
+    cocoapods(
+      try_repo_update_on_error: true
+    )
+    sigh
+    gym(
+      scheme: "OrzReader",
+      export_method: "app-store",
+      output_directory: "./build_AppStore"
     )
   end
 

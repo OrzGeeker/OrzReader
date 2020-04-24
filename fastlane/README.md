@@ -21,11 +21,21 @@ or alternatively using `brew cask install fastlane`
 fastlane ios certs
 ```
 certs
+### ios dev
+```
+fastlane ios dev
+```
+development package
 ### ios adhoc
 ```
 fastlane ios adhoc
 ```
 adhoc package
+### ios release
+```
+fastlane ios release
+```
+app store package
 
 ----
 

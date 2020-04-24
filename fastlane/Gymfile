@@ -7,6 +7,6 @@
 # Remove the # in front of the line to enable the option
 
 # clean true
-export_method("ad-hoc")
-output_directory("./build_Adhoc")
+# export_method("ad-hoc")
+# output_directory("./build_Adhoc")
 scheme("OrzReader")

@@ -5,4 +5,5 @@ xcshareddata/
 vendor/
 *.cer
 *.mobileprovision
-build_Adhoc/
+build*/
+
