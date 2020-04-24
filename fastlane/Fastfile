@@ -48,12 +48,10 @@ platform :ios do
   
   desc "Package"
   lane :package do
-    cert(development: false)
-    sigh(development: false)
-    match(type: "adhoc")
     cocoapods(
       try_repo_update_on_error: true
     )
+    match(type: "adhoc")
     gym(
       scheme: "OrzReader",
       output_directory: "build_Adhoc",
