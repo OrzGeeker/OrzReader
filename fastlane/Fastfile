@@ -17,28 +17,6 @@ default_platform(:ios)
 
 platform :ios do
 
-  desc "Description of what the lane does"
-  private_lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
-  end
-
-  desc "Register Your App"
-  private_lane :register_app do
-    produce
-  end
-
-  desc "Cert Your App"
-  private_lane :get_dev_certs do
-    cert(development: true)
-    sigh(development: true)
-  end
-
-  desc "Sync All Devices"
-  lane :sync_all_development do
-    sync_devices
-    match(type: "development")
-  end
-
   desc "Sync devices info"
   private_lane :sync_devices do
     register_devices(
@@ -46,16 +24,23 @@ platform :ios do
     )
   end
   
-  desc "Package"
-  lane :package do
+  desc "certs"
+  lane :certs do
+    match(type: "development")
+    match(type: "adhoc")
+    match(type: "appstore")
+  end
+
+  desc "adhoc package"
+  lane :adhoc do
     cocoapods(
       try_repo_update_on_error: true
     )
-    match(type: "adhoc")
+    sigh(adhoc: true)
     gym(
       scheme: "OrzReader",
-      output_directory: "build_Adhoc",
-      export_method: "ad-hoc"
+      export_method: "ad-hoc",
+      output_directory: "./build_Adhoc"
     )
   end
 

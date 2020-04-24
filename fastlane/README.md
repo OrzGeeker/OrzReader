@@ -16,16 +16,16 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
-### ios sync_all_development
+### ios certs
 ```
-fastlane ios sync_all_development
+fastlane ios certs
 ```
-Sync All Devices
-### ios package
+certs
+### ios adhoc
 ```
-fastlane ios package
+fastlane ios adhoc
 ```
-Package
+adhoc package
 
 ----
 

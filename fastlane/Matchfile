@@ -2,7 +2,7 @@ git_url("https://github.com/wangzhizhou/AppleDevCerts.git")
 
 storage_mode("git")
 
-type("development") # The default type, can be: appstore, adhoc, enterprise or development
+type("adhoc") # The default type, can be: appstore, adhoc, enterprise or development
 
 force_for_new_devices(true)
 
