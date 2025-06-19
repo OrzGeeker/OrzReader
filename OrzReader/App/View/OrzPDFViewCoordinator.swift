@@ -6,81 +6,109 @@
 //  Copyright © 2019 wangzhizhou. All rights reserved.
 //
 
-import PDFKit
 import Combine
+import PDFKit
 
 class PDFViewCoordinator: NSObject {
     var view: OrzPDFView
     var readProcessSubscription: AnyCancellable? = nil
     var saveReadPageSubscription: Any? = nil
-    
+
     var isGotoLastReadPage: Bool = true
-    
+
     init(_ view: OrzPDFView) {
         self.view = view
     }
-    
+
     func configNotification() {
-        readProcessSubscription = NotificationCenter.default.publisher(for: .PDFViewPageChanged).sink { (notification) in
-            if let currentPageNumber = self.view.pdfView.currentPage?.pageRef?.pageNumber,
-                let totalPageNumber = self.view.pdfView.document?.pageCount {
-                self.view.pdfStore.progress =  Float(currentPageNumber) / Float(totalPageNumber)
+        readProcessSubscription = NotificationCenter.default.publisher(
+            for: .PDFViewPageChanged
+        ).sink { (notification) in
+            if let currentPageNumber = self.view.pdfView.currentPage?.pageRef?
+                .pageNumber,
+                let totalPageNumber = self.view.pdfView.document?.pageCount
+            {
+                self.view.pdfStore.progress =
+                    Float(currentPageNumber) / Float(totalPageNumber)
             }
         }
-        saveReadPageSubscription = view.pdfStore.savePublisher.sink { (_) in
-            self.saveLastReadPage()
-        }
+        // TODO: 实时保存进度
+        //        saveReadPageSubscription = view.pdfStore.savePublisher.sink { (_) in
+        //            self.saveLastReadPage()
+        //        }
     }
-    
+
     func updateContentMode() {
 
-        guard let currentWindowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
+        guard
+            let currentWindowScene = UIApplication.shared.connectedScenes.first
+                as? UIWindowScene
+        else {
             return
         }
-        
-        let isLandscape = currentWindowScene.interfaceOrientation == .landscapeLeft || currentWindowScene.interfaceOrientation == .landscapeRight
-        
-        guard view.lastContentMode != view.pdfStore.contentMode || view.isLandscape != isLandscape else {
+
+        let isLandscape =
+            currentWindowScene.effectiveGeometry.interfaceOrientation
+            == .landscapeLeft
+            || currentWindowScene.effectiveGeometry.interfaceOrientation
+                == .landscapeRight
+
+        guard
+            view.lastContentMode != view.pdfStore.contentMode
+                || view.isLandscape != isLandscape
+        else {
             return
         }
         view.lastContentMode = view.pdfStore.contentMode
         view.isLandscape = isLandscape
-        
+
         let screenWidth = currentWindowScene.screen.bounds.size.width
-        
-        if let currentPageSize = view.pdfView.currentPage?.bounds(for: view.pdfView.displayBox).size {
+
+        if let currentPageSize = view.pdfView.currentPage?.bounds(
+            for: view.pdfView.displayBox
+        ).size {
             switch view.pdfStore.contentMode {
             case .aspectFit:
                 let displayWidth = screenWidth
                 let contentWidth = currentPageSize.width
-                    let scale = displayWidth / contentWidth
-                    setPDFView(with: scale)
+                let scale = displayWidth / contentWidth
+                setPDFView(with: scale)
             case .aspectFill:
                 let leftPadding: CGFloat = isLandscape ? 44.0 : 5.0
                 let displayWidth = screenWidth - leftPadding * 2
-                let thumbnailSize = CGSize(width: currentPageSize.width / 4, height: currentPageSize.height / 4)
-                if let pageImage = view.pdfView.currentPage?.thumbnail(of: thumbnailSize, for: view.pdfView.displayBox),
-                    let pageWidth = view.pdfView.currentPage?.bounds(for: view.pdfView.displayBox).size.width {
-//                    let contentWidth = pageWidth * OpenCV.contentWidthRatio(of: pageImage)
-//                    let scale = displayWidth / contentWidth
-                    let scale = 1.0
+                let thumbnailSize = CGSize(
+                    width: currentPageSize.width / 4,
+                    height: currentPageSize.height / 4
+                )
+                if let _ = view.pdfView.currentPage?.thumbnail(
+                    of: thumbnailSize,
+                    for: view.pdfView.displayBox
+                ),
+                    let pageWidth = view.pdfView.currentPage?.bounds(
+                        for: view.pdfView.displayBox
+                    ).size.width
+                {
+                    // let contentWidth = pageWidth * OpenCV.contentWidthRatio(of: pageImage)
+                    let contentWidth = pageWidth
+                    let scale = displayWidth / contentWidth
                     setPDFView(with: scale)
                 }
             }
         }
     }
-    
+
     func setPDFView(with scale: CGFloat?) {
-    
+
         if let scale = scale {
             view.pdfView.minScaleFactor = scale
             view.pdfView.maxScaleFactor = scale
-            
+
             // 设置两次才行正常布局
             view.pdfView.scaleFactor = scale
             view.pdfView.scaleFactor = scale
-            
-            if let scrollView = try! view.pdfView.subviews.filter({ (subview) throws -> Bool in
+
+            if let scrollView = try! view.pdfView.subviews.filter({
+                (subview) throws -> Bool in
                 return subview is UIScrollView
             }).first as? UIScrollView {
                 // 禁止水平滑动
@@ -90,20 +118,24 @@ class PDFViewCoordinator: NSObject {
             }
         }
     }
-    
+
     // 保存阅读进度
     func saveLastReadPage() {
-        // let page = view.pdfView.visiblePages.first,
-        if
-            let page = view.pdfView.currentPage,
-            let pageNumber = page.pageRef?.pageNumber,
-            let point = view.pdfView.currentDestination?.point,
-            let zoom = view.pdfView.currentDestination?.zoom,
-            let pageMode = view.lastContentMode {
-//            view.pdfInfo.savePageNumber(pageNumber, location: point, zoom: zoom, pageMode: pageMode)
-        }
+        //        if let page = view.pdfView.currentPage,
+        //            let pageNumber = page.pageRef?.pageNumber,
+        //            let point = view.pdfView.currentDestination?.point,
+        //            let zoom = view.pdfView.currentDestination?.zoom,
+        //            let pageMode = view.lastContentMode
+        //        {
+        //            view.pdfInfo.savePageNumber(
+        //                pageNumber,
+        //                location: point,
+        //                zoom: zoom,
+        //                pageMode: pageMode
+        //            )
+        //        }
     }
-    
+
     func goToLastReadPage() {
         guard isGotoLastReadPage else { return }
         let visiblePages = view.pdfView.visiblePages.map({ (page) -> Int in
@@ -115,11 +147,15 @@ class PDFViewCoordinator: NSObject {
         guard visiblePages.first == lastPageNumber else { return }
         isGotoLastReadPage = false
     }
-    
+
     func goToPage(_ pageNumber: Int) {
         if let lastPage = view.pdfView.document?.page(at: pageNumber) {
-            let offsetY = lastPage.bounds(for: view.pdfView.displayBox).size.height
-            let destination = PDFDestination(page: lastPage, at: CGPoint(x: 0, y: offsetY))
+            let offsetY = lastPage.bounds(for: view.pdfView.displayBox).size
+                .height
+            let destination = PDFDestination(
+                page: lastPage,
+                at: CGPoint(x: 0, y: offsetY)
+            )
             view.pdfView.go(to: destination)
         }
     }

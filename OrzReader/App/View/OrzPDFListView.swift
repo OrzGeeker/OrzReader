@@ -9,26 +9,32 @@
 import SwiftUI
 
 struct OrzPDFListView: View {
-    
-    @EnvironmentObject var pdfStore: OrzPDFStore
+    @Environment(OrzPDFStore.self) var pdfStore
     @State var showFeedBack: Bool = false
-    
+
     var body: some View {
-        
+
         VStack {
             if pdfStore.pdfs.count > 0 {
                 NavigationView {
                     List(pdfStore.pdfs) { pdfInfo in
-                        NavigationLink(destination: OrzPDFDetailView(pdfInfo: pdfInfo)) {
+                        NavigationLink(
+                            destination: OrzPDFDetailView(pdfInfo: pdfInfo)
+                        ) {
                             OrzPDFListRow(pdfInfo: pdfInfo)
                         }
                     }
                     .navigationBarTitle("图书列表", displayMode: .large)
-                    .navigationBarItems(trailing: Button(action: {
-                        self.showFeedBack.toggle()
-                    }, label: {
-                        Text("反馈").font(.system(.headline))
-                    }))
+                    .navigationBarItems(
+                        trailing: Button(
+                            action: {
+                                self.showFeedBack.toggle()
+                            },
+                            label: {
+                                Text("反馈").font(.system(.headline))
+                            }
+                        )
+                    )
                     .sheet(isPresented: $showFeedBack) {
                         OrzFeedBackView()
                     }

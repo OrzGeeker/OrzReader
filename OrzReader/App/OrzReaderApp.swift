@@ -5,45 +5,47 @@
 //  Created by wangzhizhou on 2025/6/19.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
 struct OrzReaderApp: App {
-    @Environment(\.scenePhase) var scenePhase
     @State private var store = OrzPDFStore()
+    var body: some Scene {
+        WindowGroup {
+            OrzPDFListView()
+                .environment(store)
+                .onOpenURL { store.importPDF(with: $0) }
+        }
+        .modelContainer(sharedModelContainer)
+        .onChange(of: scenePhase) { oldValue, newValue in
+            switch newValue {
+            case .inactive:
+                // TODO: 保存阅读进度
+                break
+            case .background:
+                break
+            case .active:
+                break
+            @unknown default:
+                break
+            }
+        }
+    }
+    @Environment(\.scenePhase) var scenePhase
     var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-        
+        let schema = Schema([])
+        let modelConfiguration = ModelConfiguration(
+            schema: schema,
+            isStoredInMemoryOnly: false
+        )
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            return try ModelContainer(
+                for: schema,
+                configurations: [modelConfiguration]
+            )
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
     }()
-    var body: some Scene {
-        WindowGroup {
-            OrzPDFListView()
-                .environmentObject(store)
-                .onOpenURL { url in
-                    print("receive flle url: \(url)")
-//                    OrzPDFInfo(url: url)?.save()
-                }
-        }
-        .modelContainer(sharedModelContainer)
-//        .onChange(of: scenePhase) { oldValue, newValue in
-//            switch newValue {
-//            case .active:
-//            case .background:
-//            case .inactive:
-//                store.savePublisher.send(true)
-//            @unknown default:
-//                break
-//            }
-//        }
-    }
-    
 }

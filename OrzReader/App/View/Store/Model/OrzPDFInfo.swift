@@ -6,7 +6,6 @@
 //  Copyright © 2019 joker. All rights reserved.
 //
 
-import CryptoSwift
 import PDFKit
 
 enum OrzPDFPageContentMode {
@@ -38,7 +37,7 @@ class OrzPDFInfo: Identifiable {
     var id = UUID().uuidString
     var title: String? = nil
     var urlStr: String? = nil
-    var sha1: String? = nil
+    var sha256: String? = nil
     var pageMode: OrzPDFPageContentMode = .aspectFit
     var lastPageNumber: Int = 1
     var lastPagePointX: Float = 0
@@ -48,7 +47,7 @@ class OrzPDFInfo: Identifiable {
     var pageCount: Int? = 0
     var pdfUrl: URL? {
         
-        if let documents_url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true), let sha1 = self.sha1 {
+        if let documents_url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true), let sha1 = self.sha256 {
             return documents_url.appendingPathComponent(sha1)
         }
         return nil
@@ -72,7 +71,7 @@ class OrzPDFInfo: Identifiable {
     
         if let data = try? Data(contentsOf: url) {
             self.title = url.deletingPathExtension().lastPathComponent
-            self.sha1 = data.sha1().toHexString()
+            self.sha256 = data.sha256
             self.urlStr = url.absoluteString
             
             if let document = PDFDocument(data: data), let page = document.page(at: 0) {

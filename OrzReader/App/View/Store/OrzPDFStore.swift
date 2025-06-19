@@ -6,32 +6,24 @@
 //  Copyright © 2019 wangzhizhou. All rights reserved.
 //
 
+import Logging
 import SwiftUI
-import Combine
 
-final class OrzPDFStore: ObservableObject {
-    @Published var pdfs = [OrzPDFInfo]()
-    @Published var progress: Float = 0
-    @Published var contentMode: OrzPDFPageContentMode = .aspectFit
-    
-    let savePublisher = PassthroughSubject<Any, Never>()
-    
-//    var notificationToken: NotificationToken? = nil
-
-//    init() {
-//        notificationToken =  OrzPDFInfo.all().observe { (changes) in
-//            switch changes {
-//            case .initial(let pdfs):
-//                self.pdfs = pdfs
-//            case .update(let pdfs, _ ,  _,  _):
-//                self.pdfs = pdfs
-//            case .error(let error):
-//                fatalError("\(error)")
-//            }
-//        }
-//    }
-    
-//    deinit {
-//        notificationToken?.invalidate()
-//    }
+@Observable
+final class OrzPDFStore {
+    var pdfs = [OrzPDFInfo]()
+    var progress: Float = 0
+    var contentMode: OrzPDFPageContentMode = .aspectFit
+}
+extension OrzPDFStore {
+    func importPDF(with url: URL) {
+        logger.info("receive flle url: \(url)")
+        // TODO: 外部导入的图片保存到数据库中
+        guard let pdfInfo = OrzPDFInfo(url: url)
+        else {
+            return
+        }
+        pdfs.append(pdfInfo)
+        pdfInfo.saveToDocuments()
+    }
 }
