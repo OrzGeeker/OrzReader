@@ -26,7 +26,12 @@ struct OrzReaderApp: App {
     }()
     var body: some Scene {
         WindowGroup {
-            OrzPDFListView().environmentObject(store)
+            OrzPDFListView()
+                .environmentObject(store)
+                .onOpenURL { url in
+                    print("receive flle url: \(url)")
+//                    OrzPDFInfo(url: url)?.save()
+                }
         }
         .modelContainer(sharedModelContainer)
 //        .onChange(of: scenePhase) { oldValue, newValue in
@@ -38,9 +43,6 @@ struct OrzReaderApp: App {
 //            @unknown default:
 //                break
 //            }
-//        }
-//        .onOpenURL { url in
-//            OrzPDFInfo(url: url)?.save()
 //        }
     }
     
