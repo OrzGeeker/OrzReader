@@ -1,5 +1,7 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '13.0'
 
 target 'OrzReader' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -7,11 +9,8 @@ target 'OrzReader' do
 
   # Pods for OrzReader
   pod 'OpenCV'
-  pod 'SnapKit'
   pod 'RealmSwift'
   pod 'CryptoSwift'
-  
-  # For Debug
-  pod 'FLEX', :configurations => ['Debug']
+  pod 'PinpointKit'
 
 end
