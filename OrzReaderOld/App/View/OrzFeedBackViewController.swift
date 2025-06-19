@@ -7,12 +7,15 @@
 //
 
 import SwiftUI
+import PinpointKit
 
 struct OrzFeedBackViewController: UIViewControllerRepresentable {
 
     var isShow: Bool = false
     
     let viewController = UIViewController()
+    
+    let pinpointKit = PinpointKit(feedbackRecipients: ["824219521@qq.com"])
         
     func makeUIViewController(context: UIViewControllerRepresentableContext<OrzFeedBackViewController>) -> UIViewController {
         return viewController
@@ -20,6 +23,7 @@ struct OrzFeedBackViewController: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<OrzFeedBackViewController>) {
         if isShow {
+            pinpointKit.show(from: viewController)
         }
     }
 }

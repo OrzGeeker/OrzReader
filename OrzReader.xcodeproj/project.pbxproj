@@ -3,471 +3,398 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 77;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		595BB337079018C83BFB6BB1 /* Pods_OrzReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF0A83EACA9045189C5D477 /* Pods_OrzReader.framework */; };
-		E232602A2322267C003816EC /* OrzPDFDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23260292322267C003816EC /* OrzPDFDetailView.swift */; };
-		E252CA912324E74B00EF85AB /* OrzPDFStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E252CA902324E74B00EF85AB /* OrzPDFStore.swift */; };
-		E288D52923C858AA0029A474 /* OrzReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E288D52823C858AA0029A474 /* OrzReaderUITests.swift */; };
-		E288D53123C858F10029A474 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E288D53023C858F10029A474 /* SnapshotHelper.swift */; };
-		E289F77B233DED3A00AD030D /* OrzPDFViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E289F77A233DED3A00AD030D /* OrzPDFViewCoordinator.swift */; };
-		E2ABDA0223214C4D00DD3D28 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA0123214C4D00DD3D28 /* AppDelegate.swift */; };
-		E2ABDA0423214C4D00DD3D28 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA0323214C4D00DD3D28 /* SceneDelegate.swift */; };
-		E2ABDA0623214C4D00DD3D28 /* OrzPDFListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA0523214C4D00DD3D28 /* OrzPDFListView.swift */; };
-		E2ABDA0823214C5200DD3D28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2ABDA0723214C5200DD3D28 /* Assets.xcassets */; };
-		E2ABDA0B23214C5200DD3D28 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2ABDA0A23214C5200DD3D28 /* Preview Assets.xcassets */; };
-		E2ABDA0E23214C5200DD3D28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2ABDA0C23214C5200DD3D28 /* LaunchScreen.storyboard */; };
-		E2ABDA1623214C7800DD3D28 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E2ABDA1523214C7800DD3D28 /* README.md */; };
-		E2ABDA2823214C8000DD3D28 /* OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA1E23214C8000DD3D28 /* OpenCV.mm */; };
-		E2ABDA2A23214C8000DD3D28 /* OrzPDFInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA2123214C8000DD3D28 /* OrzPDFInfo.swift */; };
-		E2ABDA302321503600DD3D28 /* OrzPDFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2ABDA2F2321503600DD3D28 /* OrzPDFView.swift */; };
-		E2AFDAA723C89FD8003BB2B3 /* OrzFeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AFDAA623C89FD8003BB2B3 /* OrzFeedBackViewController.swift */; };
-		E2C68F312342362600734385 /* OrzPDFListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C68F302342362600734385 /* OrzPDFListRow.swift */; };
-		E2EB817E2351B38C0077BC6E /* OrzFeedBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB817D2351B38C0077BC6E /* OrzFeedBackView.swift */; };
-		F30A3DFE233FA2B80067B167 /* OrzPDFProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A3DFD233FA2B80067B167 /* OrzPDFProgressView.swift */; };
+		2BA133CF2E0442520040CB2C /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2BA133CE2E0442520040CB2C /* CryptoSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E288D52B23C858AA0029A474 /* PBXContainerItemProxy */ = {
+		2BA1336C2E04399A0040CB2C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E2ABD9F623214C4D00DD3D28 /* Project object */;
+			containerPortal = 2BA133522E0439970040CB2C /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E2ABD9FD23214C4D00DD3D28;
+			remoteGlobalIDString = 2BA133592E0439970040CB2C;
+			remoteInfo = OrzReader;
+		};
+		2BA133762E04399B0040CB2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BA133522E0439970040CB2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BA133592E0439970040CB2C;
 			remoteInfo = OrzReader;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3CF0A83EACA9045189C5D477 /* Pods_OrzReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrzReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		46A2103D3667B5FA37B16EA9 /* Pods-OrzReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrzReader.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader.debug.xcconfig"; sourceTree = "<group>"; };
-		8E0C44C4F2B3BE8D319BAFD2 /* Pods-OrzReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrzReader.release.xcconfig"; path = "Pods/Target Support Files/Pods-OrzReader/Pods-OrzReader.release.xcconfig"; sourceTree = "<group>"; };
-		E23260292322267C003816EC /* OrzPDFDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFDetailView.swift; sourceTree = "<group>"; };
-		E252CA902324E74B00EF85AB /* OrzPDFStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFStore.swift; sourceTree = "<group>"; };
-		E288D52623C858AA0029A474 /* OrzReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrzReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E288D52823C858AA0029A474 /* OrzReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzReaderUITests.swift; sourceTree = "<group>"; };
-		E288D52A23C858AA0029A474 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E288D53023C858F10029A474 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
-		E289F77A233DED3A00AD030D /* OrzPDFViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFViewCoordinator.swift; sourceTree = "<group>"; };
-		E2ABD9FE23214C4D00DD3D28 /* OrzReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrzReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2ABDA0123214C4D00DD3D28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E2ABDA0323214C4D00DD3D28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E2ABDA0523214C4D00DD3D28 /* OrzPDFListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFListView.swift; sourceTree = "<group>"; };
-		E2ABDA0723214C5200DD3D28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E2ABDA0A23214C5200DD3D28 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E2ABDA0D23214C5200DD3D28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E2ABDA0F23214C5200DD3D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2ABDA1523214C7800DD3D28 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E2ABDA1D23214C8000DD3D28 /* OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenCV.h; sourceTree = "<group>"; };
-		E2ABDA1E23214C8000DD3D28 /* OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCV.mm; sourceTree = "<group>"; };
-		E2ABDA2123214C8000DD3D28 /* OrzPDFInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrzPDFInfo.swift; sourceTree = "<group>"; };
-		E2ABDA2223214C8000DD3D28 /* OrzReaderBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrzReaderBridge.h; sourceTree = "<group>"; };
-		E2ABDA2F2321503600DD3D28 /* OrzPDFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFView.swift; sourceTree = "<group>"; };
-		E2AFDAA623C89FD8003BB2B3 /* OrzFeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzFeedBackViewController.swift; sourceTree = "<group>"; };
-		E2C68F302342362600734385 /* OrzPDFListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFListRow.swift; sourceTree = "<group>"; };
-		E2EB817D2351B38C0077BC6E /* OrzFeedBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzFeedBackView.swift; sourceTree = "<group>"; };
-		F30A3DFD233FA2B80067B167 /* OrzPDFProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrzPDFProgressView.swift; sourceTree = "<group>"; };
+		2BA1335A2E0439970040CB2C /* OrzReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrzReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BA1336B2E04399A0040CB2C /* OrzReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrzReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BA133752E04399A0040CB2C /* OrzReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrzReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2BA1337D2E04399B0040CB2C /* Exceptions for "OrzReader" folder in "OrzReader" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				App/ToDelete/ContentView.swift,
+				App/ToDelete/Core/OpenCV/OpenCV.mm,
+				App/ToDelete/Core/OrzConfigManager.swift,
+				App/ToDelete/Core/OrzNavigationController.swift,
+				App/ToDelete/Core/OrzPDFPage.swift,
+				App/ToDelete/Core/OrzPDFView.swift,
+				App/ToDelete/Core/OrzPDFViewController.swift,
+				App/ToDelete/Core/OrzReader.swift,
+				Info.plist,
+			);
+			target = 2BA133592E0439970040CB2C /* OrzReader */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2BA1335C2E0439970040CB2C /* OrzReader */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2BA1337D2E04399B0040CB2C /* Exceptions for "OrzReader" folder in "OrzReader" target */,
+			);
+			path = OrzReader;
+			sourceTree = "<group>";
+		};
+		2BA1336E2E04399A0040CB2C /* OrzReaderTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = OrzReaderTests;
+			sourceTree = "<group>";
+		};
+		2BA133782E04399B0040CB2C /* OrzReaderUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = OrzReaderUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
-		E288D52323C858AA0029A474 /* Frameworks */ = {
+		2BA133572E0439970040CB2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BA133CF2E0442520040CB2C /* CryptoSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BA133682E04399A0040CB2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2ABD9FB23214C4D00DD3D28 /* Frameworks */ = {
+		2BA133722E04399A0040CB2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				595BB337079018C83BFB6BB1 /* Pods_OrzReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A072B553EB255D73B9189DF3 /* Pods */ = {
+		2BA133512E0439970040CB2C = {
 			isa = PBXGroup;
 			children = (
-				46A2103D3667B5FA37B16EA9 /* Pods-OrzReader.debug.xcconfig */,
-				8E0C44C4F2B3BE8D319BAFD2 /* Pods-OrzReader.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		BEEBED8AEF16DE83A27DFF91 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3CF0A83EACA9045189C5D477 /* Pods_OrzReader.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E252CA8F2324E73A00EF85AB /* Store */ = {
-			isa = PBXGroup;
-			children = (
-				E252CA902324E74B00EF85AB /* OrzPDFStore.swift */,
-			);
-			path = Store;
-			sourceTree = "<group>";
-		};
-		E288D52723C858AA0029A474 /* OrzReaderUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E288D53023C858F10029A474 /* SnapshotHelper.swift */,
-				E288D52823C858AA0029A474 /* OrzReaderUITests.swift */,
-				E288D52A23C858AA0029A474 /* Info.plist */,
-			);
-			path = OrzReaderUITests;
-			sourceTree = "<group>";
-		};
-		E2ABD9F523214C4D00DD3D28 = {
-			isa = PBXGroup;
-			children = (
-				E2ABDA1523214C7800DD3D28 /* README.md */,
-				E2ABDA0023214C4D00DD3D28 /* OrzReader */,
-				E288D52723C858AA0029A474 /* OrzReaderUITests */,
-				E2ABD9FF23214C4D00DD3D28 /* Products */,
-				A072B553EB255D73B9189DF3 /* Pods */,
-				BEEBED8AEF16DE83A27DFF91 /* Frameworks */,
+				2BA1335C2E0439970040CB2C /* OrzReader */,
+				2BA1336E2E04399A0040CB2C /* OrzReaderTests */,
+				2BA133782E04399B0040CB2C /* OrzReaderUITests */,
+				2BA1335B2E0439970040CB2C /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E2ABD9FF23214C4D00DD3D28 /* Products */ = {
+		2BA1335B2E0439970040CB2C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2ABD9FE23214C4D00DD3D28 /* OrzReader.app */,
-				E288D52623C858AA0029A474 /* OrzReaderUITests.xctest */,
+				2BA1335A2E0439970040CB2C /* OrzReader.app */,
+				2BA1336B2E04399A0040CB2C /* OrzReaderTests.xctest */,
+				2BA133752E04399A0040CB2C /* OrzReaderUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E2ABDA0023214C4D00DD3D28 /* OrzReader */ = {
-			isa = PBXGroup;
-			children = (
-				E2ABDA2C23214E5C00DD3D28 /* App */,
-				E2ABDA2E23214ED800DD3D28 /* Supported */,
-			);
-			path = OrzReader;
-			sourceTree = "<group>";
-		};
-		E2ABDA0923214C5200DD3D28 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				E2ABDA0A23214C5200DD3D28 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		E2ABDA1723214C8000DD3D28 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				E2ABDA2223214C8000DD3D28 /* OrzReaderBridge.h */,
-				E2ABDA1C23214C8000DD3D28 /* OpenCV */,
-				E2ABDA2023214C8000DD3D28 /* Model */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		E2ABDA1C23214C8000DD3D28 /* OpenCV */ = {
-			isa = PBXGroup;
-			children = (
-				E2ABDA1D23214C8000DD3D28 /* OpenCV.h */,
-				E2ABDA1E23214C8000DD3D28 /* OpenCV.mm */,
-			);
-			path = OpenCV;
-			sourceTree = "<group>";
-		};
-		E2ABDA2023214C8000DD3D28 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E2ABDA2123214C8000DD3D28 /* OrzPDFInfo.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E2ABDA2C23214E5C00DD3D28 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				E2ABDA0123214C4D00DD3D28 /* AppDelegate.swift */,
-				E2ABDA0323214C4D00DD3D28 /* SceneDelegate.swift */,
-				E2ABDA1723214C8000DD3D28 /* Core */,
-				E2ABDA2D23214E6200DD3D28 /* View */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
-		E2ABDA2D23214E6200DD3D28 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E252CA8F2324E73A00EF85AB /* Store */,
-				E2ABDA0523214C4D00DD3D28 /* OrzPDFListView.swift */,
-				E2EB817D2351B38C0077BC6E /* OrzFeedBackView.swift */,
-				E2AFDAA623C89FD8003BB2B3 /* OrzFeedBackViewController.swift */,
-				E2C68F302342362600734385 /* OrzPDFListRow.swift */,
-				E23260292322267C003816EC /* OrzPDFDetailView.swift */,
-				F30A3DFD233FA2B80067B167 /* OrzPDFProgressView.swift */,
-				E2ABDA2F2321503600DD3D28 /* OrzPDFView.swift */,
-				E289F77A233DED3A00AD030D /* OrzPDFViewCoordinator.swift */,
-				E2ABDA0923214C5200DD3D28 /* Preview Content */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E2ABDA2E23214ED800DD3D28 /* Supported */ = {
-			isa = PBXGroup;
-			children = (
-				E2ABDA0723214C5200DD3D28 /* Assets.xcassets */,
-				E2ABDA0C23214C5200DD3D28 /* LaunchScreen.storyboard */,
-				E2ABDA0F23214C5200DD3D28 /* Info.plist */,
-			);
-			path = Supported;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E288D52523C858AA0029A474 /* OrzReaderUITests */ = {
+		2BA133592E0439970040CB2C /* OrzReader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E288D52F23C858AA0029A474 /* Build configuration list for PBXNativeTarget "OrzReaderUITests" */;
+			buildConfigurationList = 2BA1337E2E04399B0040CB2C /* Build configuration list for PBXNativeTarget "OrzReader" */;
 			buildPhases = (
-				E288D52223C858AA0029A474 /* Sources */,
-				E288D52323C858AA0029A474 /* Frameworks */,
-				E288D52423C858AA0029A474 /* Resources */,
+				2BA133562E0439970040CB2C /* Sources */,
+				2BA133572E0439970040CB2C /* Frameworks */,
+				2BA133582E0439970040CB2C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E288D52C23C858AA0029A474 /* PBXTargetDependency */,
 			);
-			name = OrzReaderUITests;
-			productName = OrzReaderUITests;
-			productReference = E288D52623C858AA0029A474 /* OrzReaderUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		E2ABD9FD23214C4D00DD3D28 /* OrzReader */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E2ABDA1223214C5200DD3D28 /* Build configuration list for PBXNativeTarget "OrzReader" */;
-			buildPhases = (
-				6586CA29125F471583995E95 /* [CP] Check Pods Manifest.lock */,
-				E2ABD9FA23214C4D00DD3D28 /* Sources */,
-				E2ABD9FB23214C4D00DD3D28 /* Frameworks */,
-				E2ABD9FC23214C4D00DD3D28 /* Resources */,
-				E134713BAC78C98E2A230B44 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
+			fileSystemSynchronizedGroups = (
+				2BA1335C2E0439970040CB2C /* OrzReader */,
 			);
 			name = OrzReader;
+			packageProductDependencies = (
+				2BA133CE2E0442520040CB2C /* CryptoSwift */,
+			);
 			productName = OrzReader;
-			productReference = E2ABD9FE23214C4D00DD3D28 /* OrzReader.app */;
+			productReference = 2BA1335A2E0439970040CB2C /* OrzReader.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2BA1336A2E04399A0040CB2C /* OrzReaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BA133832E04399B0040CB2C /* Build configuration list for PBXNativeTarget "OrzReaderTests" */;
+			buildPhases = (
+				2BA133672E04399A0040CB2C /* Sources */,
+				2BA133682E04399A0040CB2C /* Frameworks */,
+				2BA133692E04399A0040CB2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BA1336D2E04399A0040CB2C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2BA1336E2E04399A0040CB2C /* OrzReaderTests */,
+			);
+			name = OrzReaderTests;
+			packageProductDependencies = (
+			);
+			productName = OrzReaderTests;
+			productReference = 2BA1336B2E04399A0040CB2C /* OrzReaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2BA133742E04399A0040CB2C /* OrzReaderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BA133862E04399B0040CB2C /* Build configuration list for PBXNativeTarget "OrzReaderUITests" */;
+			buildPhases = (
+				2BA133712E04399A0040CB2C /* Sources */,
+				2BA133722E04399A0040CB2C /* Frameworks */,
+				2BA133732E04399A0040CB2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BA133772E04399B0040CB2C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2BA133782E04399B0040CB2C /* OrzReaderUITests */,
+			);
+			name = OrzReaderUITests;
+			packageProductDependencies = (
+			);
+			productName = OrzReaderUITests;
+			productReference = 2BA133752E04399A0040CB2C /* OrzReaderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E2ABD9F623214C4D00DD3D28 /* Project object */ = {
+		2BA133522E0439970040CB2C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1100;
-				ORGANIZATIONNAME = wangzhizhou;
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
-					E288D52523C858AA0029A474 = {
-						CreatedOnToolsVersion = 11.3;
-						TestTargetID = E2ABD9FD23214C4D00DD3D28;
+					2BA133592E0439970040CB2C = {
+						CreatedOnToolsVersion = 26.0;
 					};
-					E2ABD9FD23214C4D00DD3D28 = {
-						CreatedOnToolsVersion = 11.0;
+					2BA1336A2E04399A0040CB2C = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 2BA133592E0439970040CB2C;
+					};
+					2BA133742E04399A0040CB2C = {
+						CreatedOnToolsVersion = 26.0;
+						TestTargetID = 2BA133592E0439970040CB2C;
 					};
 				};
 			};
-			buildConfigurationList = E2ABD9F923214C4D00DD3D28 /* Build configuration list for PBXProject "OrzReader" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 2BA133552E0439970040CB2C /* Build configuration list for PBXProject "OrzReader" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = E2ABD9F523214C4D00DD3D28;
-			productRefGroup = E2ABD9FF23214C4D00DD3D28 /* Products */;
+			mainGroup = 2BA133512E0439970040CB2C;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2BA133CD2E0442520040CB2C /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2BA1335B2E0439970040CB2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2ABD9FD23214C4D00DD3D28 /* OrzReader */,
-				E288D52523C858AA0029A474 /* OrzReaderUITests */,
+				2BA133592E0439970040CB2C /* OrzReader */,
+				2BA1336A2E04399A0040CB2C /* OrzReaderTests */,
+				2BA133742E04399A0040CB2C /* OrzReaderUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E288D52423C858AA0029A474 /* Resources */ = {
+		2BA133582E0439970040CB2C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2ABD9FC23214C4D00DD3D28 /* Resources */ = {
+		2BA133692E04399A0040CB2C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2ABDA0E23214C5200DD3D28 /* LaunchScreen.storyboard in Resources */,
-				E2ABDA0B23214C5200DD3D28 /* Preview Assets.xcassets in Resources */,
-				E2ABDA1623214C7800DD3D28 /* README.md in Resources */,
-				E2ABDA0823214C5200DD3D28 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BA133732E04399A0040CB2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		6586CA29125F471583995E95 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-OrzReader-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E134713BAC78C98E2A230B44 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OrzReader/Pods-OrzReader-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		E288D52223C858AA0029A474 /* Sources */ = {
+		2BA133562E0439970040CB2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E288D52923C858AA0029A474 /* OrzReaderUITests.swift in Sources */,
-				E288D53123C858F10029A474 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2ABD9FA23214C4D00DD3D28 /* Sources */ = {
+		2BA133672E04399A0040CB2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F30A3DFE233FA2B80067B167 /* OrzPDFProgressView.swift in Sources */,
-				E2ABDA2A23214C8000DD3D28 /* OrzPDFInfo.swift in Sources */,
-				E2ABDA0223214C4D00DD3D28 /* AppDelegate.swift in Sources */,
-				E2ABDA2823214C8000DD3D28 /* OpenCV.mm in Sources */,
-				E2ABDA302321503600DD3D28 /* OrzPDFView.swift in Sources */,
-				E2ABDA0423214C4D00DD3D28 /* SceneDelegate.swift in Sources */,
-				E289F77B233DED3A00AD030D /* OrzPDFViewCoordinator.swift in Sources */,
-				E2AFDAA723C89FD8003BB2B3 /* OrzFeedBackViewController.swift in Sources */,
-				E2EB817E2351B38C0077BC6E /* OrzFeedBackView.swift in Sources */,
-				E2ABDA0623214C4D00DD3D28 /* OrzPDFListView.swift in Sources */,
-				E252CA912324E74B00EF85AB /* OrzPDFStore.swift in Sources */,
-				E2C68F312342362600734385 /* OrzPDFListRow.swift in Sources */,
-				E232602A2322267C003816EC /* OrzPDFDetailView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BA133712E04399A0040CB2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E288D52C23C858AA0029A474 /* PBXTargetDependency */ = {
+		2BA1336D2E04399A0040CB2C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E2ABD9FD23214C4D00DD3D28 /* OrzReader */;
-			targetProxy = E288D52B23C858AA0029A474 /* PBXContainerItemProxy */;
+			target = 2BA133592E0439970040CB2C /* OrzReader */;
+			targetProxy = 2BA1336C2E04399A0040CB2C /* PBXContainerItemProxy */;
+		};
+		2BA133772E04399B0040CB2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BA133592E0439970040CB2C /* OrzReader */;
+			targetProxy = 2BA133762E04399B0040CB2C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		E2ABDA0C23214C5200DD3D28 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E2ABDA0D23214C5200DD3D28 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		E288D52D23C858AA0029A474 /* Debug */ = {
+		2BA1337F2E04399B0040CB2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2N62934Y28;
-				INFOPLIST_FILE = OrzReaderUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader.OrzReaderUITests;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrzReader/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OrzReader;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
 		};
-		E288D52E23C858AA0029A474 /* Release */ = {
+		2BA133802E04399B0040CB2C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2N62934Y28;
-				INFOPLIST_FILE = OrzReaderUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader.OrzReaderUITests;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrzReader/Info.plist;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = OrzReader;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
 		};
-		E2ABDA1023214C5200DD3D28 /* Debug */ = {
+		2BA133812E04399B0040CB2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -486,6 +413,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -494,9 +422,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2N62934Y28;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -510,24 +440,23 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		E2ABDA1123214C5200DD3D28 /* Release */ = {
+		2BA133822E04399B0040CB2C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -546,6 +475,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -554,9 +484,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2N62934Y28;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -564,101 +496,170 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		E2ABDA1323214C5200DD3D28 /* Debug */ = {
+		2BA133842E04399B0040CB2C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46A2103D3667B5FA37B16EA9 /* Pods-OrzReader.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_ASSET_PATHS = "\"OrzReader/App/View/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2N62934Y28;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = OrzReader/Supported/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/OrzReader/App/Core/OrzReaderBridge.h";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				VERSIONING_SYSTEM = "apple-generic";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrzReader.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OrzReader";
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Debug;
 		};
-		E2ABDA1423214C5200DD3D28 /* Release */ = {
+		2BA133852E04399B0040CB2C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E0C44C4F2B3BE8D319BAFD2 /* Pods-OrzReader.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_ASSET_PATHS = "\"OrzReader/App/View/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2N62934Y28;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = OrzReader/Supported/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReader;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReaderTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "${SRCROOT}/OrzReader/App/Core/OrzReaderBridge.h";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-				VERSIONING_SYSTEM = "apple-generic";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OrzReader.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/OrzReader";
+				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
+		2BA133872E04399B0040CB2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2N62934Y28;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = OrzReader;
+				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		2BA133882E04399B0040CB2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2N62934Y28;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joker.OrzReaderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TEST_TARGET_NAME = OrzReader;
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E288D52F23C858AA0029A474 /* Build configuration list for PBXNativeTarget "OrzReaderUITests" */ = {
+		2BA133552E0439970040CB2C /* Build configuration list for PBXProject "OrzReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E288D52D23C858AA0029A474 /* Debug */,
-				E288D52E23C858AA0029A474 /* Release */,
+				2BA133812E04399B0040CB2C /* Debug */,
+				2BA133822E04399B0040CB2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2ABD9F923214C4D00DD3D28 /* Build configuration list for PBXProject "OrzReader" */ = {
+		2BA1337E2E04399B0040CB2C /* Build configuration list for PBXNativeTarget "OrzReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2ABDA1023214C5200DD3D28 /* Debug */,
-				E2ABDA1123214C5200DD3D28 /* Release */,
+				2BA1337F2E04399B0040CB2C /* Debug */,
+				2BA133802E04399B0040CB2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2ABDA1223214C5200DD3D28 /* Build configuration list for PBXNativeTarget "OrzReader" */ = {
+		2BA133832E04399B0040CB2C /* Build configuration list for PBXNativeTarget "OrzReaderTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E2ABDA1323214C5200DD3D28 /* Debug */,
-				E2ABDA1423214C5200DD3D28 /* Release */,
+				2BA133842E04399B0040CB2C /* Debug */,
+				2BA133852E04399B0040CB2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BA133862E04399B0040CB2C /* Build configuration list for PBXNativeTarget "OrzReaderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BA133872E04399B0040CB2C /* Debug */,
+				2BA133882E04399B0040CB2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2BA133CD2E0442520040CB2C /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.8.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2BA133CE2E0442520040CB2C /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BA133CD2E0442520040CB2C /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = E2ABD9F623214C4D00DD3D28 /* Project object */;
+	rootObject = 2BA133522E0439970040CB2C /* Project object */;
 }

@@ -61,9 +61,8 @@ class PDFViewCoordinator: NSObject {
                 let thumbnailSize = CGSize(width: currentPageSize.width / 4, height: currentPageSize.height / 4)
                 if let pageImage = view.pdfView.currentPage?.thumbnail(of: thumbnailSize, for: view.pdfView.displayBox),
                     let pageWidth = view.pdfView.currentPage?.bounds(for: view.pdfView.displayBox).size.width {
-//                    let contentWidth = pageWidth * OpenCV.contentWidthRatio(of: pageImage)
-//                    let scale = displayWidth / contentWidth
-                    let scale = 1.0
+                    let contentWidth = pageWidth * OpenCV.contentWidthRatio(of: pageImage)
+                    let scale = displayWidth / contentWidth
                     setPDFView(with: scale)
                 }
             }
@@ -100,7 +99,7 @@ class PDFViewCoordinator: NSObject {
             let point = view.pdfView.currentDestination?.point,
             let zoom = view.pdfView.currentDestination?.zoom,
             let pageMode = view.lastContentMode {
-//            view.pdfInfo.savePageNumber(pageNumber, location: point, zoom: zoom, pageMode: pageMode)
+            view.pdfInfo.savePageNumber(pageNumber, location: point, zoom: zoom, pageMode: pageMode)
         }
     }
     

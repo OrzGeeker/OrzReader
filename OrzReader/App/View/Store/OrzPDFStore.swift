@@ -7,32 +7,31 @@
 //
 
 import SwiftUI
-import RealmSwift
 import Combine
 
 final class OrzPDFStore: ObservableObject {
-    @Published var pdfs = OrzPDFInfo.all()
+    @Published var pdfs = [OrzPDFInfo]()
     @Published var progress: Float = 0
     @Published var contentMode: OrzPDFPageContentMode = .aspectFit
     
     let savePublisher = PassthroughSubject<Any, Never>()
     
-    var notificationToken: NotificationToken? = nil
+//    var notificationToken: NotificationToken? = nil
 
-    init() {
-        notificationToken =  OrzPDFInfo.all().observe { (changes) in
-            switch changes {
-            case .initial(let pdfs):
-                self.pdfs = pdfs
-            case .update(let pdfs, _ ,  _,  _):
-                self.pdfs = pdfs
-            case .error(let error):
-                fatalError("\(error)")
-            }
-        }
-    }
+//    init() {
+//        notificationToken =  OrzPDFInfo.all().observe { (changes) in
+//            switch changes {
+//            case .initial(let pdfs):
+//                self.pdfs = pdfs
+//            case .update(let pdfs, _ ,  _,  _):
+//                self.pdfs = pdfs
+//            case .error(let error):
+//                fatalError("\(error)")
+//            }
+//        }
+//    }
     
-    deinit {
-        notificationToken?.invalidate()
-    }
+//    deinit {
+//        notificationToken?.invalidate()
+//    }
 }
