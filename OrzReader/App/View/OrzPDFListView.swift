@@ -23,7 +23,9 @@ struct OrzPDFListView: View {
         } else {
             List(selection: $selectedPDF) {
                 ForEach(pdfs) { pdfInfo in
-                    OrzPDFListRow(pdfInfo: pdfInfo)
+                    NavigationLink(value: pdfInfo) {
+                        OrzPDFListRow(pdfInfo: pdfInfo)
+                    }
                 }
                 .onDelete(perform: deleteItems)
             }
