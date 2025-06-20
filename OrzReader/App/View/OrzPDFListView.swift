@@ -1,23 +1,14 @@
-//
-//  OrzPDFListView.swift
-//  OrzReader
-//
-//  Created by wangzhizhou on 2019/9/5.
-//  Copyright © 2019 wangzhizhou. All rights reservxed.
-//
-
+import SwiftData
 import SwiftUI
 
 struct OrzPDFListView: View {
-    @Environment(OrzPDFStore.self) var pdfStore
     @State var showFeedBack: Bool = false
-
+    @Query var pdfs: [OrzPDFInfo]
     var body: some View {
-
         VStack {
-            if pdfStore.pdfs.count > 0 {
+            if pdfs.count > 0 {
                 NavigationView {
-                    List(pdfStore.pdfs) { pdfInfo in
+                    List(pdfs) { pdfInfo in
                         NavigationLink(
                             destination: OrzPDFDetailView(pdfInfo: pdfInfo)
                         ) {

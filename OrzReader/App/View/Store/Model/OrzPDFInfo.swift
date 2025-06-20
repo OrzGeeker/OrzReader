@@ -1,103 +1,98 @@
-//
-//  OrzPDFInfo.swift
-//  OrzReader
-//
-//  Created by joker on 2019/2/8.
-//  Copyright © 2019 joker. All rights reserved.
-//
-
 import PDFKit
+import SwiftData
 
-enum OrzPDFPageContentMode {
-    
-    case aspectFit
-    case aspectFill
-    
-    mutating func toggle() {
-        switch self {
-        case .aspectFit:
-            self = .aspectFill
-        case .aspectFill:
-            self = .aspectFit
-        }
-    }
-    
-    var title: String {
-        switch self {
-        case .aspectFit:
-            return "Fill"
-        case .aspectFill:
-            return "Fit"
-        }
-    }
-}
-
-class OrzPDFInfo: Identifiable {
-    
-    var id = UUID().uuidString
-    var title: String? = nil
-    var urlStr: String? = nil
-    var sha256: String? = nil
-    var pageMode: OrzPDFPageContentMode = .aspectFit
-    var lastPageNumber: Int = 1
-    var lastPagePointX: Float = 0
-    var lastPagePointY: Float = 0
-    var lastPageZoom: Float = 0
-    var thumbnail: Data? = nil
-    var pageCount: Int? = 0
-    var pdfUrl: URL? {
-        
-        if let documents_url = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true), let sha1 = self.sha256 {
-            return documents_url.appendingPathComponent(sha1)
-        }
-        return nil
-    }
-    
-    lazy var uiImage: UIImage? = {
-        
-        guard let thumbnailData = thumbnail, let uiImage = UIImage(data: thumbnailData) else {
-            return nil
-        }
-        return uiImage
-    }()
-    
-    convenience init?(url: URL) {
-        
-        guard url.scheme == "file", url.pathExtension == "pdf" else {
-            return nil
-        }
-        
-        self.init()
-    
-        if let data = try? Data(contentsOf: url) {
-            self.title = url.deletingPathExtension().lastPathComponent
-            self.sha256 = data.sha256
-            self.urlStr = url.absoluteString
-            
-            if let document = PDFDocument(data: data), let page = document.page(at: 0) {
-                self.pageCount = document.pageCount
-                let size = page.bounds(for: .mediaBox).size
-                self.thumbnail = page.thumbnail(of: size, for: .mediaBox).pngData()
+@Model
+final class OrzPDFInfo: Identifiable {
+    var title: String
+    var sha256: String
+    var urlStr: String
+    var pageCount: Int
+    var thumbnail: Data
+    var pdfUrl: URL
+    enum OrzPDFPageContentMode: String, Codable {
+        case aspectFit = "Fit"
+        case aspectFill = "Fill"
+        mutating func toggle() {
+            switch self {
+            case .aspectFit:
+                self = .aspectFill
+            case .aspectFill:
+                self = .aspectFit
             }
         }
+        var title: String {
+            self.rawValue
+        }
     }
-    
-    func saveToDocuments() {
-        guard let pdfUrl = self.pdfUrl, let urlStr = self.urlStr else {
-            return
+    var pageMode: OrzPDFPageContentMode
+    var lastPageNumber: Int
+    var lastPagePointX: Float
+    var lastPagePointY: Float
+    var lastPageZoom: Float
+    var progress: Float
+    init(
+        title: String,
+        sha256: String,
+        urlStr: String,
+        pageCount: Int,
+        thumbnail: Data,
+        pdfUrl: URL,
+        pageMode: OrzPDFPageContentMode = .aspectFit,
+        lastPageNumber: Int = 1,
+        lastPagePointX: Float = 0,
+        lastPagePointY: Float = 0,
+        lastPageZoom: Float = 0,
+        progress: Float = 0
+    ) {
+        self.title = title
+        self.sha256 = sha256
+        self.urlStr = urlStr
+        self.pageCount = pageCount
+        self.thumbnail = thumbnail
+        self.pdfUrl = pdfUrl
+        self.pageMode = pageMode
+        self.lastPageNumber = lastPageNumber
+        self.lastPagePointX = lastPagePointX
+        self.lastPagePointY = lastPagePointY
+        self.lastPageZoom = lastPageZoom
+        self.progress = progress
+    }
+}
+extension OrzPDFInfo {
+    static func parse(with url: URL) async throws -> OrzPDFInfo? {
+        guard
+            url.scheme == "file", url.pathExtension == "pdf",
+            let data = try? Data(contentsOf: url),
+            let document = PDFDocument(data: data),
+            let page = document.page(at: 0),
+            let thumbnailData = page.thumbnail(
+                of: page.bounds(for: .mediaBox).size,
+                for: .mediaBox
+            ).pngData(),
+            let documents_url = try? FileManager.default.url(
+                for: .documentDirectory,
+                in: .userDomainMask,
+                appropriateFor: nil,
+                create: true
+            )
+        else {
+            return nil
         }
 
-        if let url = URL(string: urlStr), let pdfData = try? Data(contentsOf: url) {
-            try? pdfData.write(to: pdfUrl)
-            self.urlStr = self.pdfUrl?.absoluteString
-        }
+        let pdfInfo = OrzPDFInfo(
+            title: url.deletingPathExtension().lastPathComponent,
+            sha256: data.sha256,
+            urlStr: url.absoluteString,
+            pageCount: document.pageCount,
+            thumbnail: thumbnailData,
+            pdfUrl: documents_url.appendingPathComponent(data.sha256),
+        )
+        try data.write(to: pdfInfo.pdfUrl)
+        return pdfInfo
     }
-    
+
     func removeFromDocuments() {
-        guard let pdfUrl = self.pdfUrl else {
-            return
-        }
-        try? FileManager.default.removeItem(at:pdfUrl)
+        try? FileManager.default.removeItem(at: pdfUrl)
     }
 }
 
@@ -108,24 +103,24 @@ class OrzPDFInfo: Identifiable {
 //    class func first() -> OrzPDFInfo? {
 //        return OrzPDFInfo.all().first
 //    }
-//    
+//
 //    // Read
 //    class func all() -> Results<OrzPDFInfo> {
 //        let realm = try! Realm()
 //        return realm.objects(OrzPDFInfo.self)
 //    }
-//    
+//
 //    // Create
 //    func save() {
-//        
+//
 //        let realm = try! Realm()
-//        
+//
 //        guard (self.sha1 != nil) && self.sha1!.count > 0 else {
 //            return
 //        }
-//        
+//
 //        let exists = OrzPDFInfo.all().filter("sha1 = '\(self.sha1!)'")
-//        
+//
 //        if exists.count == 0 {
 //            try! realm.write {
 //                // 保存PDF文件到Documents档中
@@ -134,17 +129,17 @@ class OrzPDFInfo: Identifiable {
 //            }
 //        }
 //    }
-//    
+//
 //    // Delete
 //    func delete() {
-//        
+//
 //        let realm = try! Realm()
 //        try! realm.write {
 //            realm.delete(self)
 //            self.removeFromDocuments()
 //        }
 //    }
-//    
+//
 //    func savePageNumber(_ pageNumber: Int, location point: CGPoint, zoom: CGFloat, pageMode: OrzPDFPageContentMode) {
 //        let realm = try! Realm()
 //        try! realm.write {

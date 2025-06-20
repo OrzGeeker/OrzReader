@@ -28,7 +28,7 @@ class PDFViewCoordinator: NSObject {
                 .pageNumber,
                 let totalPageNumber = self.view.pdfView.document?.pageCount
             {
-                self.view.pdfStore.progress =
+                self.view.pdfInfo.progress =
                     Float(currentPageNumber) / Float(totalPageNumber)
             }
         }
@@ -54,12 +54,12 @@ class PDFViewCoordinator: NSObject {
                 == .landscapeRight
 
         guard
-            view.lastContentMode != view.pdfStore.contentMode
+            view.lastContentMode != view.pdfInfo.pageMode
                 || view.isLandscape != isLandscape
         else {
             return
         }
-        view.lastContentMode = view.pdfStore.contentMode
+        view.lastContentMode = view.pdfInfo.pageMode
         view.isLandscape = isLandscape
 
         let screenWidth = currentWindowScene.screen.bounds.size.width
@@ -67,7 +67,7 @@ class PDFViewCoordinator: NSObject {
         if let currentPageSize = view.pdfView.currentPage?.bounds(
             for: view.pdfView.displayBox
         ).size {
-            switch view.pdfStore.contentMode {
+            switch view.pdfInfo.pageMode {
             case .aspectFit:
                 let displayWidth = screenWidth
                 let contentWidth = currentPageSize.width
@@ -80,10 +80,10 @@ class PDFViewCoordinator: NSObject {
                     width: currentPageSize.width / 4,
                     height: currentPageSize.height / 4
                 )
-                if let _ = view.pdfView.currentPage?.thumbnail(
+                if view.pdfView.currentPage?.thumbnail(
                     of: thumbnailSize,
                     for: view.pdfView.displayBox
-                ),
+                ) != nil,
                     let pageWidth = view.pdfView.currentPage?.bounds(
                         for: view.pdfView.displayBox
                     ).size.width

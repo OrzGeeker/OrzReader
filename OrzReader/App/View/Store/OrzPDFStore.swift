@@ -7,23 +7,20 @@
 //
 
 import Logging
+import SwiftData
 import SwiftUI
 
 @Observable
 final class OrzPDFStore {
-    var pdfs = [OrzPDFInfo]()
-    var progress: Float = 0
-    var contentMode: OrzPDFPageContentMode = .aspectFit
 }
+
 extension OrzPDFStore {
-    func importPDF(with url: URL) {
+    func importPDF(with url: URL) async {
         logger.info("receive flle url: \(url)")
-        // TODO: 外部导入的图片保存到数据库中
-        guard let pdfInfo = OrzPDFInfo(url: url)
+        guard let pdfInfo = try? await OrzPDFInfo.parse(with: url)
         else {
             return
         }
-        pdfs.append(pdfInfo)
-        pdfInfo.saveToDocuments()
+        sharedModelContainer.mainContext.insert(pdfInfo)
     }
 }

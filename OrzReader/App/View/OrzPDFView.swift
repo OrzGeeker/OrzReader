@@ -18,8 +18,8 @@ struct OrzPDFView: UIViewRepresentable {
     var pdfView = PDFView(frame: .zero)
 
     var scale: CGFloat?
-
-    var lastContentMode: OrzPDFPageContentMode?
+    
+    var lastContentMode: OrzPDFInfo.OrzPDFPageContentMode = .aspectFit
 
     var isLandscape: Bool?
 
@@ -27,17 +27,13 @@ struct OrzPDFView: UIViewRepresentable {
 
     func makeUIView(context: UIViewRepresentableContext<OrzPDFView>) -> PDFView
     {
+        pdfView.document = PDFDocument(url: pdfInfo.pdfUrl)
+        pdfView.displayMode = .singlePageContinuous
+        pdfView.displayDirection = .vertical
+        pdfView.displaysPageBreaks = false
+        pdfView.autoScales = false
 
-        if let pdfUrl = pdfInfo.pdfUrl, let document = PDFDocument(url: pdfUrl)
-        {
-            pdfView.document = document
-            pdfView.displayMode = .singlePageContinuous
-            pdfView.displayDirection = .vertical
-            pdfView.displaysPageBreaks = false
-            pdfView.autoScales = false
-
-            removeDoubleTapGestures()
-        }
+        removeDoubleTapGestures()
         return pdfView
     }
 

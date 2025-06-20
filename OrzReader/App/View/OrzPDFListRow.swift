@@ -9,20 +9,24 @@
 import SwiftUI
 
 struct OrzPDFListRow: View {
-    
+
     var pdfInfo: OrzPDFInfo
-    
+
     var body: some View {
         HStack {
-            if (pdfInfo.uiImage != nil) {
-                Image(uiImage: pdfInfo.uiImage!)
+            if let uiImage = UIImage(data: pdfInfo.thumbnail) {
+                Image(uiImage: uiImage)
                     .resizable()
-                    .frame(width: pdfInfo.uiImage!.size.width / pdfInfo.uiImage!.size.height  * 100, height: 100, alignment: .center)
+                    .frame(
+                        width: uiImage.size.width / uiImage.size.height * 100,
+                        height: 100,
+                        alignment: .center
+                    )
                     .aspectRatio(contentMode: .fill)
                     .clipped()
             }
             VStack {
-                Text("\(pdfInfo.title!)")
+                Text("\(pdfInfo.title)")
                     .fontWeight(.semibold)
                     .font(.system(size: 16))
                     .lineLimit(2)
@@ -30,7 +34,7 @@ struct OrzPDFListRow: View {
                 HStack {
                     Text("上次阅读第\(pdfInfo.lastPageNumber)页")
                         .font(.system(size: 12))
-                        
+
                     Spacer()
                 }
             }

@@ -19,16 +19,16 @@ struct OrzPDFDetailView: View {
 
     var body: some View {
         VStack {
-            OrzPDFProgressView(progress: pdfStore.progress)
+            OrzPDFProgressView(progress: pdfInfo.progress)
             OrzPDFView(pdfInfo: pdfInfo, loadLastReadPage: loadLastReadPage)
-                .navigationBarTitle("", displayMode: .inline)
+                .navigationTitle("")
                 .navigationBarItems(
                     trailing: Button(
                         action: {
-                            self.pdfStore.contentMode.toggle()
+                            pdfInfo.pageMode.toggle()
                         },
                         label: {
-                            Text(self.pdfStore.contentMode.title)
+                            Text(pdfInfo.pageMode.title)
                                 .bold().frame(width: 50)
                         }
                     )
@@ -37,9 +37,7 @@ struct OrzPDFDetailView: View {
                 })
                 .onDisappear {
                     // TODO: 保存进度
-                    self.pdfStore.contentMode = .aspectFit
-                }.padding(.top, -8)
-
+                }
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
     }
