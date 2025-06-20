@@ -11,8 +11,6 @@ import SwiftUI
 
 struct OrzPDFDetailView: View {
 
-    @Environment(OrzPDFStore.self) var pdfStore
-
     @State var loadLastReadPage: Bool = false
 
     var pdfInfo: OrzPDFInfo

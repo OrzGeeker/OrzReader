@@ -37,7 +37,6 @@
 		2BA1337D2E04399B0040CB2C /* Exceptions for "OrzReader" folder in "OrzReader" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				App/ToDelete/ContentView.swift,
 				App/ToDelete/Core/OpenCV/OpenCV.mm,
 				App/ToDelete/Core/OrzConfigManager.swift,
 				App/ToDelete/Core/OrzNavigationController.swift,

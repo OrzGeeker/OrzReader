@@ -1,6 +1,8 @@
+import Foundation
+import Logging
 import SwiftData
 
-var sharedModelContainer: ModelContainer = {
+let sharedModelContainer: ModelContainer = {
     let schema = Schema([
         OrzPDFInfo.self
     ])
@@ -18,3 +20,13 @@ var sharedModelContainer: ModelContainer = {
     }
 }()
 
+func importPDF(with url: URL) {
+    logger.info("import pdf: \(url)")
+    Task {
+        guard let pdfInfo = await OrzPDFInfo.parse(with: url)
+        else {
+            return
+        }
+        sharedModelContainer.mainContext.insert(pdfInfo)
+    }
+}

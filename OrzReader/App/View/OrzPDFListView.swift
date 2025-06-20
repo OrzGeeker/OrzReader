@@ -2,35 +2,12 @@ import SwiftData
 import SwiftUI
 
 struct OrzPDFListView: View {
-    @State var showFeedBack: Bool = false
-    @Query var pdfs: [OrzPDFInfo]
+    let pdfs: [OrzPDFInfo]
+    @Binding var selectedPDF: OrzPDFInfo?
+    @Environment(\.modelContext) private var modelContext
     var body: some View {
-        VStack {
-            if pdfs.count > 0 {
-                NavigationView {
-                    List(pdfs) { pdfInfo in
-                        NavigationLink(
-                            destination: OrzPDFDetailView(pdfInfo: pdfInfo)
-                        ) {
-                            OrzPDFListRow(pdfInfo: pdfInfo)
-                        }
-                    }
-                    .navigationBarTitle("图书列表", displayMode: .large)
-                    .navigationBarItems(
-                        trailing: Button(
-                            action: {
-                                self.showFeedBack.toggle()
-                            },
-                            label: {
-                                Text("反馈").font(.system(.headline))
-                            }
-                        )
-                    )
-                    .sheet(isPresented: $showFeedBack) {
-                        OrzFeedBackView()
-                    }
-                }
-            } else {
+        if pdfs.isEmpty {
+            VStack {
                 Text("暂无PDF导入")
                     .fontWeight(.bold)
                     .font(.system(.largeTitle))
@@ -42,6 +19,23 @@ struct OrzPDFListView: View {
                     .font(.system(.subheadline))
                     .padding(.top, 10)
                     .foregroundColor(.gray)
+            }
+        } else {
+            List(selection: $selectedPDF) {
+                ForEach(pdfs) { pdfInfo in
+                    OrzPDFListRow(pdfInfo: pdfInfo)
+                }
+                .onDelete(perform: deleteItems)
+            }
+            .navigationTitle("图书列表")
+        }
+    }
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            for index in offsets {
+                let pdfInfo = pdfs[index]
+                pdfInfo.removeFromDocument()
+                modelContext.delete(pdfInfo)
             }
         }
     }

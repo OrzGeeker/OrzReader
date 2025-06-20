@@ -4,16 +4,10 @@ import SwiftUI
 @main
 struct OrzReaderApp: App {
     @Environment(\.scenePhase) var scenePhase
-    @State private var store = OrzPDFStore()
     var body: some Scene {
         WindowGroup {
-            OrzPDFListView()
-                .environment(store)
-                .onOpenURL { url in
-                    Task {
-                        await store.importPDF(with: url)
-                    }
-                }
+            ContentView()
+                .onOpenURL { importPDF(with: $0) }
         }
         .modelContainer(sharedModelContainer)
         .onChange(of: scenePhase) { oldValue, newValue in

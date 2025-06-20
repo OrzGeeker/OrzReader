@@ -11,8 +11,6 @@ import SwiftUI
 
 struct OrzPDFView: UIViewRepresentable {
 
-    @Environment(OrzPDFStore.self) var pdfStore
-
     var pdfInfo: OrzPDFInfo
 
     var pdfView = PDFView(frame: .zero)
@@ -27,7 +25,7 @@ struct OrzPDFView: UIViewRepresentable {
 
     func makeUIView(context: UIViewRepresentableContext<OrzPDFView>) -> PDFView
     {
-        pdfView.document = PDFDocument(url: pdfInfo.pdfUrl)
+        pdfView.document = PDFDocument(url: pdfInfo.fileUrl)
         pdfView.displayMode = .singlePageContinuous
         pdfView.displayDirection = .vertical
         pdfView.displaysPageBreaks = false
