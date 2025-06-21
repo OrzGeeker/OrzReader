@@ -25,6 +25,7 @@ struct OrzPDFListView: View {
                 ForEach(pdfs) { pdfInfo in
                     NavigationLink(value: pdfInfo) {
                         OrzPDFListRow(pdfInfo: pdfInfo)
+                            .frame(height: 100)
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -41,4 +42,22 @@ struct OrzPDFListView: View {
             }
         }
     }
+}
+
+#Preview("Empty List") {
+    OrzPDFListView(pdfs: [], selectedPDF: .constant(nil))
+}
+
+#Preview("One PDF") {
+    OrzPDFListView(
+        pdfs: [mockPDF],
+        selectedPDF: .constant(nil)
+    )
+}
+
+#Preview("PDF List") {
+    OrzPDFListView(
+        pdfs: mockPDFList,
+        selectedPDF: .constant(nil)
+    )
 }

@@ -1,31 +1,18 @@
-//
-//  OrzPDFListRow.swift
-//  OrzReader
-//
-//  Created by wangzhizhou on 2019/9/30.
-//  Copyright © 2019 wangzhizhou. All rights reserved.
-//
-
 import SwiftUI
 
 struct OrzPDFListRow: View {
 
-    var pdfInfo: OrzPDFInfo
+    let pdfInfo: OrzPDFInfo
 
     var body: some View {
         HStack {
-            if let uiImage = UIImage(data: pdfInfo.thumbnail) {
-                Image(uiImage: uiImage)
+            if let thumbnailImage = pdfInfo.thumbnailImage {
+                thumbnailImage
                     .resizable()
-                    .frame(
-                        width: uiImage.size.width / uiImage.size.height * 100,
-                        height: 100,
-                        alignment: .center
-                    )
-                    .aspectRatio(contentMode: .fill)
+                    .aspectRatio(contentMode: .fit)
                     .clipped()
             }
-            VStack {
+            VStack(alignment: .leading) {
                 Text("\(pdfInfo.title)")
                     .fontWeight(.semibold)
                     .font(.system(size: 16))
@@ -40,4 +27,9 @@ struct OrzPDFListRow: View {
             }
         }
     }
+}
+
+#Preview {
+    OrzPDFListRow(pdfInfo: mockPDF)
+        .frame(height: 100)
 }

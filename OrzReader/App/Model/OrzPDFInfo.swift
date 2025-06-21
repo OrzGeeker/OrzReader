@@ -1,14 +1,19 @@
+import Logging
 import PDFKit
 import SwiftData
 
 @Model
 final class OrzPDFInfo {
+    @Attribute(.unique)
     var title: String
     var sha256: String
-    var urlStr: String
     var pageCount: Int
     var thumbnail: Data
-    var fileUrl: URL
+    struct MediaBoxSize: Codable {
+        let width: Double
+        let height: Double
+    }
+    var mediaBoxSize: MediaBoxSize
     enum OrzPDFPageContentMode: String, Codable {
         case aspectFit = "Fit"
         case aspectFill = "Fill"
@@ -33,10 +38,9 @@ final class OrzPDFInfo {
     init(
         title: String,
         sha256: String,
-        urlStr: String,
         pageCount: Int,
         thumbnail: Data,
-        fileUrl: URL,
+        mediaBoxSize: MediaBoxSize,
         pageMode: OrzPDFPageContentMode = .aspectFit,
         lastPageNumber: Int = 1,
         lastPagePointX: Float = 0,
@@ -46,10 +50,9 @@ final class OrzPDFInfo {
     ) {
         self.title = title
         self.sha256 = sha256
-        self.urlStr = urlStr
         self.pageCount = pageCount
         self.thumbnail = thumbnail
-        self.fileUrl = fileUrl
+        self.mediaBoxSize = mediaBoxSize
         self.pageMode = pageMode
         self.lastPageNumber = lastPageNumber
         self.lastPagePointX = lastPagePointX
@@ -59,7 +62,7 @@ final class OrzPDFInfo {
     }
 }
 extension OrzPDFInfo {
-    static func parse(with url: URL) async -> OrzPDFInfo? {
+    static func parse(with url: URL) -> OrzPDFInfo? {
         guard
             url.isFileURL, url.pathExtension == "pdf",
             let data = try? Data(contentsOf: url),
@@ -68,29 +71,23 @@ extension OrzPDFInfo {
             let thumbnailData = page.thumbnail(
                 of: page.bounds(for: .mediaBox).size,
                 for: .mediaBox
-            ).pngData(),
-            let documents_url = try? FileManager.default.url(
-                for: .documentDirectory,
-                in: .userDomainMask,
-                appropriateFor: nil,
-                create: true
-            )
+            ).pngData()
         else {
             return nil
         }
 
+        let size = page.bounds(for: .mediaBox).size
+        let mediaBoxSize = MediaBoxSize(width: size.width, height: size.height)
         let pdfInfo = OrzPDFInfo(
             title: url.deletingPathExtension().lastPathComponent,
             sha256: data.sha256,
-            urlStr: url.absoluteString,
             pageCount: document.pageCount,
             thumbnail: thumbnailData,
-            fileUrl: documents_url.appendingPathComponent(
-                url.lastPathComponent
-            ),
+            mediaBoxSize: mediaBoxSize,
         )
         do {
             try data.write(to: pdfInfo.fileUrl)
+            logger.debug("write: \(pdfInfo.fileUrl)")
             return pdfInfo
         } catch {
             try? FileManager.default.removeItem(at: pdfInfo.fileUrl)
@@ -98,6 +95,16 @@ extension OrzPDFInfo {
         }
     }
     func removeFromDocument() {
+        logger.debug("remove: \(fileUrl)")
         try? FileManager.default.removeItem(at: fileUrl)
+    }
+    static private let documents_url = try! FileManager.default.url(
+        for: .documentDirectory,
+        in: .userDomainMask,
+        appropriateFor: nil,
+        create: true
+    )
+    var fileUrl: URL {
+        OrzPDFInfo.documents_url.appendingPathComponent(title)
     }
 }

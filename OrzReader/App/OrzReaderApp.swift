@@ -1,9 +1,11 @@
 import SwiftData
 import SwiftUI
+internal import UniformTypeIdentifiers
 
 @main
 struct OrzReaderApp: App {
     @Environment(\.scenePhase) var scenePhase
+    @State private var onDropIsTargeted: Bool = false
     var body: some Scene {
         WindowGroup {
             ContentView()

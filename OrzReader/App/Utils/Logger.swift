@@ -7,4 +7,12 @@
 
 import Logging
 
-let logger = Logger(label: "OrzReader")
+let logger = {
+    var ret = Logger(label: "OrzReader")
+    #if DEBUG
+        ret.logLevel = .debug
+    #else
+        ret.logLevel = .info
+    #endif
+    return ret
+}()
