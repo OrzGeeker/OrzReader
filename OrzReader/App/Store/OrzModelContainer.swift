@@ -2,11 +2,10 @@ import Foundation
 import Logging
 import SwiftData
 
+/// SwiftData 数据存储容器
 let sharedModelContainer: ModelContainer = {
     // 调试选项
-    if ProcessInfo.processInfo.environment["RESET_SWIFTDATA"] == "1" {
-        deleteStoreFiles()
-    }
+    destroyPersistentStore()
     let schema = Schema([
         OrzPDFInfo.self
     ])
@@ -24,6 +23,8 @@ let sharedModelContainer: ModelContainer = {
     }
 }()
 
+/// 通过url导入PDF文件到应用
+/// - Parameter url: pdf文件url
 func importPDF(with url: URL) {
     logger.info("import pdf: \(url)")
     Task {
@@ -35,37 +36,25 @@ func importPDF(with url: URL) {
     }
 }
 
-// 删除存储文件（重置数据库）
-private func deleteStoreFiles() {
-    let fileManager = FileManager.default
-    guard
-        let appSupportURL = fileManager.urls(
-            for: .applicationSupportDirectory,
-            in: .userDomainMask
-        ).first,
-        let bundleID = Bundle.main.bundleIdentifier
-    else {
-        return
-    }
-
-    let storeDirectory = appSupportURL.appendingPathComponent(bundleID)
-
-    do {
-        let storeFiles = try fileManager.contentsOfDirectory(
-            at: storeDirectory,
-            includingPropertiesForKeys: nil
+/// 彻底销毁SwiftData存储文件
+///
+/// 根据环境变量 RESET_SWIFTDATA = 1 来命中逻辑，仅开发环境使用
+func destroyPersistentStore() {
+    #if DEBUG
+        guard ProcessInfo.processInfo.environment["RESET_SWIFTDATA"] == "1"
+        else {
+            return
+        }
+        let storeURL = URL.applicationSupportDirectory.appending(
+            path: "default.store"
         )
-
-        for file in storeFiles {
-            if file.pathExtension == "store"
-                || file.pathExtension == "store-shm"
-                || file.pathExtension == "store-wal"
-            {
-                try fileManager.removeItem(at: file)
-                logger.debug("🗑️ 已删除存储文件: \(file.lastPathComponent)")
+        // 删除主文件及关联文件
+        let shmURL = storeURL.appendingPathExtension("shm")
+        let walURL = storeURL.appendingPathExtension("wal")
+        [storeURL, shmURL, walURL].forEach { url in
+            if FileManager.default.fileExists(atPath: url.path) {
+                try? FileManager.default.removeItem(at: url)
             }
         }
-    } catch {
-        logger.error("⚠️ 删除存储文件失败: \(error)")
-    }
+    #endif
 }

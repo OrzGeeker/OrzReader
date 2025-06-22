@@ -4,11 +4,16 @@
 
 ## Overview
 
+### Preview Errors
+
+1. Debug SwiftData width Previews
+> how to delete all data about previews to make app works
+
 
 ### Build Errors
 
 1. SwiftData Debug on MacOS When Schema Changed
-
+> how to delete all data about swiftdata to make app works
 
 ### CodeSign Failed
 
