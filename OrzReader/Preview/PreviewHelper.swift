@@ -2,8 +2,8 @@ import Foundation
 
 let mockPDF = OrzPDFInfo.parse(
     with: Bundle.main.url(
-        forResource: "thumbnail",
-        withExtension: "png"
+        forResource: "normal",
+        withExtension: "pdf"
     )!
 )!
 

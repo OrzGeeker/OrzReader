@@ -11,6 +11,7 @@ struct OrzPDFListRow: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .clipped()
+                    .cornerRadius(5)
             }
             VStack(alignment: .leading) {
                 Text("\(pdfInfo.title)")
@@ -32,4 +33,5 @@ struct OrzPDFListRow: View {
 #Preview {
     OrzPDFListRow(pdfInfo: mockPDF)
         .frame(height: 100)
+        .padding()
 }
