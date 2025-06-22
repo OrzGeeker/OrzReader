@@ -1,14 +1,12 @@
 # ``OrzReader``
 
-<!--@START_MENU_TOKEN@-->Summary<!--@END_MENU_TOKEN@-->
+极简阅读
 
 ## Overview
 
-<!--@START_MENU_TOKEN@-->Text<!--@END_MENU_TOKEN@-->
+个人阅读软件，提供最简单的简读体验，让阅读聚集到内容本身，让读者更专注的进行阅读
 
-## Topics
+### Related Links
 
-### <!--@START_MENU_TOKEN@-->Group<!--@END_MENU_TOKEN@-->
-
-- ``Symbol``
+- 开发日志：<doc:Development>
 
