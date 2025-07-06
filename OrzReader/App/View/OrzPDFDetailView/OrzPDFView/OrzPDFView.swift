@@ -23,11 +23,14 @@ struct OrzPDFView {
         pdfView.displayMode = .singlePageContinuous
         pdfView.displayDirection = .vertical
         pdfView.displaysPageBreaks = false
-        pdfView.scaleFactor = scaleFactor
+        pdfView.displayBox = .mediaBox
         return pdfView
     }
 
     func updateView(_ view: PDFView, context: Context) {
+        pdfView.scaleFactor = scaleFactor
+        pdfView.minScaleFactor = scaleFactor
+        pdfView.maxScaleFactor = scaleFactor
     }
 }
 

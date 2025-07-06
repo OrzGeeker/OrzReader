@@ -14,22 +14,6 @@ final class OrzPDFInfo {
         let height: Double
     }
     var mediaBoxSize: MediaBoxSize
-    enum OrzPDFPageContentMode: String, Codable {
-        case aspectFit = "Fit"
-        case aspectFill = "Fill"
-        mutating func toggle() {
-            switch self {
-            case .aspectFit:
-                self = .aspectFill
-            case .aspectFill:
-                self = .aspectFit
-            }
-        }
-        var title: String {
-            self.rawValue
-        }
-    }
-    var pageMode: OrzPDFPageContentMode
     var lastPageNumber: Int
     var lastPagePointX: Float
     var lastPagePointY: Float
@@ -41,7 +25,6 @@ final class OrzPDFInfo {
         pageCount: Int,
         thumbnail: Data,
         mediaBoxSize: MediaBoxSize,
-        pageMode: OrzPDFPageContentMode = .aspectFit,
         lastPageNumber: Int = 1,
         lastPagePointX: Float = 0,
         lastPagePointY: Float = 0,
@@ -53,7 +36,6 @@ final class OrzPDFInfo {
         self.pageCount = pageCount
         self.thumbnail = thumbnail
         self.mediaBoxSize = mediaBoxSize
-        self.pageMode = pageMode
         self.lastPageNumber = lastPageNumber
         self.lastPagePointX = lastPagePointX
         self.lastPagePointY = lastPagePointY

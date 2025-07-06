@@ -30,7 +30,7 @@ struct OrzPDFListView: View {
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("图书列表")
+            .listStyle(.plain)
         }
     }
     private func deleteItems(offsets: IndexSet) {
